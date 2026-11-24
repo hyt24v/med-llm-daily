@@ -56,6 +56,10 @@ LOOKBACK_DAYS=7 python3 fetch_papers.py   # 抓最近 7 天
 
 ## 可选扩展
 
-- **中文 AI 摘要**：读 `digests/*.json`，调用任意 LLM API 生成 TL;DR 追加到日报
+- **中文 AI 摘要（已内置）**：在仓库 Settings → Secrets and variables → Actions 里加：
+  - Secret `LLM_API_KEY`：任意 OpenAI 兼容接口的 key（DeepSeek / 通义 / Kimi / OpenAI…）
+  - Variable `LLM_BASE_URL`（可选，默认 `https://api.openai.com/v1`）
+  - Variable `LLM_MODEL`（可选，默认 `gpt-4o-mini`）
+  配置后日报每篇论文会多一行 💡 中文一句话总结；不配置则自动跳过。
 - **邮件 / 飞书 / 微信推送**：在 workflow 里加一步发送 `digests/` 最新文件
 - **medRxiv / PubMed 数据源**：在 `fetch_papers.py` 里仿照 `fetch_hf_daily` 增加一个源

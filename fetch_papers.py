@@ -262,6 +262,58 @@ def merge(arXiv_papers: list[dict], hf_papers: list[dict]) -> list[dict]:
                                p["published"]), reverse=True)
     return merged
 
+# ------------------------------------------------- LLM 中文摘要 (可选)
+#
+# 设置以下环境变量即启用 (未设置则跳过, 不影响其他功能):
+#   LLM_API_KEY   必填, OpenAI 兼容接口的 key
+#   LLM_BASE_URL  可选, 默认 https://api.openai.com/v1 (DeepSeek/通义/Kimi 等兼容接口均可)
+#   LLM_MODEL     可选, 默认 gpt-4o-mini
+
+LLM_API_KEY = os.environ.get("LLM_API_KEY", "")
+LLM_BASE_URL = os.environ.get("LLM_BASE_URL", "https://api.openai.com/v1").rstrip("/")
+LLM_MODEL = os.environ.get("LLM_MODEL", "gpt-4o-mini")
+SUMMARIZE_MAX = int(os.environ.get("SUMMARIZE_MAX", "40"))  # 每天最多摘要多少篇
+
+
+def summarize_one(p: dict) -> str:
+    """调用 OpenAI 兼容接口生成一句话中文 TL;DR, 失败返回空串。"""
+    prompt = (
+        "你是医疗 AI 方向的论文编辑。请用一句中文(≤60字)总结下面这篇论文,"
+        "格式为: 针对<问题>, 提出<方法>, 取得<结果/意义>。不要夸大, 不要翻译标题。\n\n"
+        f"标题: {p['title']}\n摘要: {p['abstract'][:2000]}"
+    )
+    body = json.dumps({
+        "model": LLM_MODEL,
+        "messages": [{"role": "user", "content": prompt}],
+        "max_tokens": 120,
+        "temperature": 0.2,
+    }).encode()
+    req = urllib.request.Request(
+        f"{LLM_BASE_URL}/chat/completions", data=body,
+        headers={"Authorization": f"Bearer {LLM_API_KEY}",
+                 "Content-Type": "application/json"})
+    try:
+        with urllib.request.urlopen(req, timeout=60) as resp:
+            data = json.loads(resp.read())
+        return data["choices"][0]["message"]["content"].strip().strip('"')
+    except Exception as e:
+        print(f"[LLM] 摘要失败 ({p['id']}): {e}", file=sys.stderr)
+        return ""
+
+
+def summarize_papers(papers: list[dict]) -> None:
+    if not LLM_API_KEY:
+        print("[LLM] 未设置 LLM_API_KEY, 跳过中文摘要")
+        return
+    print(f"[LLM] 使用 {LLM_MODEL} @ {LLM_BASE_URL} 生成中文摘要...")
+    for i, p in enumerate(papers[:SUMMARIZE_MAX]):
+        p["tldr_zh"] = summarize_one(p)
+        if i % 5 == 4:
+            print(f"[LLM] {i + 1} 篇已摘要")
+            time.sleep(1)
+    print(f"[LLM] 完成 {sum(1 for p in papers if p.get('tldr_zh'))} 篇摘要")
+
+
 # ------------------------------------------------- 输出
 
 def render_markdown(papers: list[dict], today: str) -> str:
@@ -286,6 +338,8 @@ def render_markdown(papers: list[dict], today: str) -> str:
             if len(p["tags"]) > 1:
                 lines.append(f"- 标签: {' / '.join(p['tags'])}")
             abstract = p["abstract"]
+            if p.get("tldr_zh"):
+                lines.append(f"- 💡 **{p['tldr_zh']}**")
             if len(abstract) > 600:
                 abstract = abstract[:600].rsplit(" ", 1)[0] + " …"
             lines.append(f"- {abstract}")
@@ -306,6 +360,7 @@ def main() -> None:
     hf_papers = fetch_hf_daily(since)
     papers = merge(arxiv_papers, hf_papers)
     print(f"去重后共 {len(papers)} 篇")
+    summarize_papers(papers)
 
     os.makedirs(OUT_DIR, exist_ok=True)
     md_path = os.path.join(OUT_DIR, f"{today}.md")
