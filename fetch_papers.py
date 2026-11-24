@@ -306,11 +306,16 @@ def summarize_papers(papers: list[dict]) -> None:
         print("[LLM] 未设置 LLM_API_KEY, 跳过中文摘要")
         return
     print(f"[LLM] 使用 {LLM_MODEL} @ {LLM_BASE_URL} 生成中文摘要...")
-    for i, p in enumerate(papers[:SUMMARIZE_MAX]):
-        p["tldr_zh"] = summarize_one(p)
-        if i % 5 == 4:
-            print(f"[LLM] {i + 1} 篇已摘要")
-            time.sleep(1)
+    targets = papers[:SUMMARIZE_MAX]
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+    done = 0
+    with ThreadPoolExecutor(max_workers=4) as pool:
+        futures = {pool.submit(summarize_one, p): p for p in targets}
+        for fut in as_completed(futures):
+            futures[fut]["tldr_zh"] = fut.result()
+            done += 1
+            if done % 5 == 0 or done == len(targets):
+                print(f"[LLM] {done}/{len(targets)} 篇已摘要")
     print(f"[LLM] 完成 {sum(1 for p in papers if p.get('tldr_zh'))} 篇摘要")
 
 

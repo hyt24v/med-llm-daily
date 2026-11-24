@@ -56,10 +56,17 @@ LOOKBACK_DAYS=7 python3 fetch_papers.py   # 抓最近 7 天
 
 ## 可选扩展
 
-- **中文 AI 摘要（已内置）**：在仓库 Settings → Secrets and variables → Actions 里加：
-  - Secret `LLM_API_KEY`：任意 OpenAI 兼容接口的 key（DeepSeek / 通义 / Kimi / OpenAI…）
-  - Variable `LLM_BASE_URL`（可选，默认 `https://api.openai.com/v1`）
-  - Variable `LLM_MODEL`（可选，默认 `gpt-4o-mini`）
-  配置后日报每篇论文会多一行 💡 中文一句话总结；不配置则自动跳过。
+- **中文 AI 摘要（已内置）**：用任意 OpenAI 兼容接口生成 💡 一句话中文总结；不配置则自动跳过。
+  - **本地跑（用 Magpie 网关，零配置）**：Magpie 在本机 `127.0.0.1:3425` 提供 OpenAI 兼容网关，直接复用你已登录的模型：
+    ```bash
+    LLM_API_KEY=magpie-local \
+    LLM_BASE_URL=http://127.0.0.1:3425/v1 \
+    LLM_MODEL=qwen-cn/qwen3.8-flash \
+    python3 fetch_papers.py
+    ```
+  - **GitHub Actions 跑（云端）**：`127.0.0.1` 云端无法访问，需在 Settings → Secrets and variables → Actions 配置：
+    - Secret `LLM_API_KEY`：模型服务的 key（本仓库已配置为 Magpie 中登录的阿里云百炼 key）
+    - Variable `LLM_BASE_URL`（可选，默认 `https://api.openai.com/v1`；百炼为 `https://dashscope.aliyuncs.com/compatible-mode/v1`）
+    - Variable `LLM_MODEL`（可选，默认 `gpt-4o-mini`；百炼可用 `qwen3.8-flash` / `deepseek-v4.1-flash`）
 - **邮件 / 飞书 / 微信推送**：在 workflow 里加一步发送 `digests/` 最新文件
 - **medRxiv / PubMed 数据源**：在 `fetch_papers.py` 里仿照 `fetch_hf_daily` 增加一个源
