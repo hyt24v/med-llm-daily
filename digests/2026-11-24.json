@@ -1,0 +1,272 @@
+[
+  {
+    "id": "2611.29243",
+    "title": "Seeing Is Not Acting: WARD Diagnoses the Evidence-to-State-to-Action Gap in Longitudinal Clinical Agents",
+    "abstract": "Large language models for longitudinal clinical care must revise their assessments and actions as patient information accumulates. However, benchmarks centered on isolated responses or final task outcomes provide limited insight into intermediate failures in evidence use, state updating, and action selection. We introduce WARD, a benchmark for evaluating how clinical agents translate accumulating evidence into patient-state judgments and timely, safe actions. WARD comprises 4,560 clinical tasks across seven clinical output domains, organized into 240 checkpoints from 40 longitudinal clinical trajectories spanning 95 hospitalizations. Its Longitudinal Track evaluates these tasks under controlled cumulative evidence. Its Interactive Track evaluates end-to-end, tool-mediated clinical management across 271 verifiable evidence items and 141 reference transitions. Across 12 models with scorable checkpoint outputs, evidence recognition consistently outpaces downstream state and action decisions, with linked-evidence nonresponse reaching 74.47--90.90\\%. Models also struggle to retain and update information over time, while in the Interactive Track only 11.46\\% of executed actions advance a reference transition. These results reveal a persistent evidence-to-state-to-action gap and highlight the need for process-level evaluation of longitudinal clinical agents.Code and data: https://github.com/Dingsuper-creator/WARD.",
+    "authors": [
+      "Chao Ding",
+      "Yidong Jiang",
+      "Junzhi Ning",
+      "Juncheng Wu",
+      "Yuhan Wang",
+      "Renjie Lu"
+    ],
+    "published": "2026-11-22",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.29243",
+    "tags": [
+      "📊 评测 / Benchmark",
+      "🤖 Agent"
+    ],
+    "primary_tag": "📊 评测 / Benchmark",
+    "medical_score": 10
+  },
+  {
+    "id": "2611.29741",
+    "title": "MISeg-Agent: A Human-in-the-Loop Agentic Framework for Error Diagnosis and Executable Prompt Review in 3D Medical Image Segmentation",
+    "abstract": "Despite the strong performance of modern medical image segmentation models, their predictions can still contain localized errors that compromise segmentation quality. Identifying and correcting these errors is therefore essential for improving the reliability of existing segmentation results. While interactive segmentation models enable targeted corrections, identifying potential errors, determining where to intervene, and evaluating corrective actions remain challenging. Moreover, each correction changes the current mask, requiring subsequent error diagnosis and recommendations to adapt accordingly. To address these challenges, we propose MISeg-Agent, a human-in-the-loop agentic framework that diagnoses segmentation errors and provides evidence-based correction recommendations. MISeg-Agent first selects a suitable pretrained segmentation model based on benchmark performance and computational requirements. Given its predicted mask, the framework identifies potential missing and excess foreground regions and recommends suspicious slices and corrective points for review. The framework then evaluates candidate point prompts using an interactive segmentation model and presents the resulting corrections for human verification before applying them. By operating directly on images and predicted masks, the error diagnosis process remains independent of the underlying segmentation model architecture. Evaluations on CT datasets demonstrate that MISeg-Agent improves initial segmentation results and produces final masks closely aligned with reference annotations. By integrating adaptive error diagnosis with validated correction recommendations, MISeg-Agent provides an interpretable approach to identifying and reducing residual errors in existing medical image segmentations.",
+    "authors": [
+      "Delin An",
+      "Mingqi Xu",
+      "Jian-Xun Wang",
+      "Pengfei Gu"
+    ],
+    "published": "2026-11-22",
+    "categories": [
+      "cs.CV"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.29741",
+    "tags": [
+      "📊 评测 / Benchmark",
+      "🤖 Agent",
+      "📚 综述 / Survey"
+    ],
+    "primary_tag": "📊 评测 / Benchmark",
+    "medical_score": 7
+  },
+  {
+    "id": "2611.29368",
+    "title": "SAE-Audit: Clinical-Trial Prediction via Inference-Time Optimization of Black-Box LLMs Audited by Sparse Autoencoder Evidence",
+    "abstract": "Clinical trials are costly and often take years to complete, making early outcome prediction valuable for trial planning. Large language models (LLMs) are increasingly used to forecast clinical-trial outcomes, yet their predictions remain unreliable and their rationales may not faithfully reflect the evidence underlying their answers. On tasks such as predicting whether a registered clinical trial will complete or terminate early, frontier LLMs perform only modestly above chance in our experiments. We introduce SAE-Audit, which optimizes a black-box LLM at inference time with evidence obtained from a deployable open model. A frozen sparse autoencoder (SAE) on Llama-3.1-8B-Instruct is converted into a vocabulary of clinical concepts. Sparse probes fitted on past trials determine which concepts are associated with the outcome. For a new protocol, the concepts detected by the probe are written as evidence, each with the direction and strength of its association with the outcome, and the LLM being audited optimizes its answer in the light of this evidence. Without additional training, SAE-Audit raises balanced accuracy of deepseek-v4-flash by 9.6--12.0 points on five clinical-trial prediction tasks and raises GPT-5.6-terra by 8.0 points on trial completion, exceeding other agentic inference-time optimization methods by a large margin. As an auxiliary, SAE probes module within SAE-Audit is itself accurate and auditable, providing natural-language explanations directly derived from verified concept contributions and protocol evidence, without requiring additional LLMs at inference time. SAE-Audit provides verifiable, concept-level evidence for more accurate and auditable clinical-trial prediction. It can also be embedded into biomedical AI agents such as Biomni to optimize their performance.",
+    "authors": [
+      "Junbo Shen"
+    ],
+    "published": "2026-11-22",
+    "categories": [
+      "cs.AI",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.29368",
+    "tags": [
+      "🤖 Agent"
+    ],
+    "primary_tag": "🤖 Agent",
+    "medical_score": 8
+  },
+  {
+    "id": "2611.29690",
+    "title": "MedTimeQ: Query-guided fusion of time-series foundation models and LLMs for multi-lead ECG classification",
+    "abstract": "Accurate classification of medical time series, such as electrocardiograms (ECGs), requires capturing waveform morphology, long-range temporal structure, inter-lead dependencies, and clinical semantics. Existing large language model (LLM)-based approaches often map signal patches directly into the language embedding space, potentially underusing pretrained time-series knowledge and transferring redundant or irrelevant information. We propose MedTimeQ, a parameter-efficient framework that integrates a lead-aware temporal foundation encoder with an LLM-reprogrammed ECG pathway through gated residual fusion. A Query Former uses learned diagnostic queries to select and compress fused representations into informative soft tokens for a frozen LLM. Semantic prototype learning further guides classification through multiple clinical descriptions per category, statistics-based prompt selection, and knowledge distillation. Both foundation backbones remain frozen, limiting training to lightweight interface and classification components. We evaluate MedTimeQ on PTB-XL, Chapman-Shaoxing, and MIT-BIH for recording-level diagnosis, rhythm classification, and heartbeat classification, respectively. MedTimeQ achieves the best performance in 11 of 12 dataset-metric comparisons, with consistent class-balanced gains across all three tasks. On PTB-XL, it achieves 76.93% accuracy and 58.14% macro-F1, exceeding MedTsLLM by 10.08 and 7.07 percentage points, respectively. These results demonstrate the benefits of selectively integrating pretrained temporal representations with clinical language semantics. Code: https://github.com/kkianamm/MedTimeQ",
+    "authors": [
+      "Kiana Taktehrani",
+      "Maryam Hosseini",
+      "Arash Mohammadi"
+    ],
+    "published": "2026-11-22",
+    "categories": [
+      "eess.SP"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.29690",
+    "tags": [
+      "🩺 医疗 LLM"
+    ],
+    "primary_tag": "🩺 医疗 LLM",
+    "medical_score": 6
+  },
+  {
+    "id": "2611.29592",
+    "title": "Rethinking Closed-Ended Medical VLM Evaluation: From Stable Wrongness to Counterfactual Answer Sensitivity",
+    "abstract": "As medical VLMs are increasingly evaluated for clinical decision-support scenarios, knowing when to trust their predictions is critical. Closed-ended medical VQA has become a common benchmark format because it enables automated scoring. Yet, systematic investigation into whether this format changes the reliability problem remains scarce. We identify a failure mode that we call stable wrongness: models can produce incorrect yes/no answers that remain confident and repeatable even when patient-specific visual evidence is removed or mismatched. This failure violates the premise behind sampling-stability uncertainty methods, including recent hallucination-aware calibration (HAC) variants: disagreement is informative only when errors are unstable. When shortcut-driven errors are themselves stable, sampling agreement can remain deceptively high. Motivated by this limitation, we introduce Counterfactual Answer Sensitivity (CAS), which shifts reliability estimation from answer stability to evidence sensitivity. CAS uses cross-modal counterfactual interventions, such as text-only, black, and corrupted images, to audit whether a committed yes/no answer remains supported when visual evidence is invalidated. Across 7 VLMs and 3 benchmarks, CAS outperforms the best HAC-family scores across all evaluated settings, achieving a macro-averaged AUROC gain of +0.150 for error detection. Mechanistic analysis further shows that CAS recovers hidden errors in the HAC-confident region and that its strongest standalone signal is counterfactual decision-boundary shift rather than hard prediction stability. Our findings suggest that closed-ended evaluation should test visual dependence, not only answer stability, in safety-critical medical contexts.",
+    "authors": [
+      "Qi Wu",
+      "Xiaoyu Liu",
+      "Ao Wang",
+      "Rongsheng Wang",
+      "Wenting Chen",
+      "Wenxuan Wang"
+    ],
+    "published": "2026-11-22",
+    "categories": [
+      "cs.AI"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.29592",
+    "tags": [
+      "📊 评测 / Benchmark"
+    ],
+    "primary_tag": "📊 评测 / Benchmark",
+    "medical_score": 6
+  },
+  {
+    "id": "2611.29361",
+    "title": "Beyond Attention Maps: Understanding and Improving Medical MLLMs via Visual Values",
+    "abstract": "Current MLLM methods largely focus on whether models attend to the right visual regions, implicitly treating spatial attention map as the primary key of effective visual perception. To examine this assumption, we introduce a medical VQA dataset with paired non-contrast (NC) and contrast-enhanced (CE) images that share corresponding anatomy while providing different cues. We show that this view is incomplete: across paired NC and CE medical images, MLLMs often exhibit similar attention patterns despite producing contrasting answers, while controlled bidirectional interventions induce substantially larger prediction changes on visual values than attention weights. These results identify the visual content retrieved through values as a critical factor in improving perception beyond spatial attention alone. Guided by this finding, we propose VIVID (VIsual Value Intervention Distillation), which uses enhanced visual values to identify and refine teacher corrections aligned with useful visual evidence to improve on-policy distillation from CE to NC images. Across six internal and external test sets, VIVID consistently outperforms existing on-policy distillation methods across different model scales and architectures, requires only NC images at inference, and maintains strong zero-shot performance on general-domain VQA benchmarks. The project page is available at https://qiuzyc.github.io/VIVID.",
+    "authors": [
+      "Yichen Zhao",
+      "Fenghe Tang",
+      "Wenxin Ma",
+      "Rongsheng Wang",
+      "Zihao Wan",
+      "Shaohua Kevin Zhou"
+    ],
+    "published": "2026-11-22",
+    "categories": [
+      "cs.CV"
+    ],
+    "source": "arXiv + HF 🔥",
+    "upvotes": 1,
+    "url": "https://arxiv.org/abs/2611.29361",
+    "tags": [
+      "📊 评测 / Benchmark"
+    ],
+    "primary_tag": "📊 评测 / Benchmark",
+    "medical_score": 3
+  },
+  {
+    "id": "2611.29783",
+    "title": "Beyond Language Optimization: Enhancing Visual Representations for Radiology Report Generation",
+    "abstract": "Accurate chest X-ray radiology report generation (RRG) requires recognizing clinically relevant abnormalities and accurately describing them. Although Group Relative Policy Optimization (GRPO) improves the clinical accuracy of generated reports, our analyses suggest limited improvements in visual representations for abnormality recognition. To address this limitation, we propose a selective regional visual distillation framework that enhances visual representations of challenging abnormalities while preserving existing visual capabilities. Specifically, we train a region-aware teacher with targeted supervision on challenging anatomical regions to acquire complementary visual knowledge. Rather than transferring all teacher features, we verify their utility through regional feature replacement and select only those that improve the original student's performance. We further introduce a Spatially Gated Residual Adapter (SGRA) to distill these verified features while minimizing interference with the student's existing visual representations. Experiments on MIMIC-CXR and IU-Xray demonstrate improved clinical report accuracy and region-level abnormality recognition across different multimodal large language model backbones, while largely preserving performance on non-target findings.",
+    "authors": [
+      "Rui Zuo",
+      "Qinyue Tong",
+      "Ziqian Lu",
+      "Zheming Lu"
+    ],
+    "published": "2026-11-22",
+    "categories": [
+      "cs.CV"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.29783",
+    "tags": [
+      "🖼️ 多模态医疗"
+    ],
+    "primary_tag": "🖼️ 多模态医疗",
+    "medical_score": 5
+  },
+  {
+    "id": "2611.29305",
+    "title": "CT-Navigator: Towards Interpretable and Generalizable CT Understanding through Agentic Perception and Tool-Invocation",
+    "abstract": "Clinical computed tomography (CT) interpretation inherently requires progressive visual exploration, where radiologists navigate from whole scans to individual slices and regions of interest and interact with external tools when necessary. However, existing 3D medical multimodal large language models (MLLMs) typically connect a specialized 3D visual encoder to a language model, without fully leveraging the native 2D visual and agentic capabilities of generalist MLLMs. Trained on large-scale one-hop CT instruction-following data, these models also have limited ability to perform iterative reasoning and explicitly ground their conclusions in visual evidence, limiting their support for traceable CT interpretation. To solve these problems, we propose \\textbf{agentic perception} as an alternative paradigm inspired by radiologists' interpretation workflows. We introduce \\textbf{CT-Navigator}, a framework that harnesses generalist MLLMs' 2D visual and agentic capabilities to progressively ground CT interpretation in explicit, traceable visual evidence through hierarchical visual exploration and radiology tool invocation. To build these capabilities, we curate 8,904 visual chain-of-thought (V-CoT) trajectories for cold-start agentic supervised fine-tuning. We then optimize the policy through reinforcement learning on 33,219 questions, with data selection and dynamic rollout sampling prioritizing informative learning signals. Finally, we introduce CTNavi-Bench, a 3D CT visual question answering benchmark comprising 7,000 questions spanning anatomical regions throughout the human body. CT-Navigator achieves 79.50\\% accuracy on CTNavi-Bench, surpassing the strongest baseline by 17.59\\%, and demonstrates strong generalization across three external CT benchmarks. The code, model, and benchmark will be released on \\href{https://github.com/fyb99/ct_navigator}{GitHub}.",
+    "authors": [
+      "Yibing Fu",
+      "Huidong Xie",
+      "Yihao Niu",
+      "Wei Ji",
+      "Heming Dong",
+      "Ziyue Wang"
+    ],
+    "published": "2026-11-22",
+    "categories": [
+      "cs.CV"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.29305",
+    "tags": [
+      "📊 评测 / Benchmark",
+      "🤖 Agent",
+      "🖼️ 多模态医疗"
+    ],
+    "primary_tag": "📊 评测 / Benchmark",
+    "medical_score": 3
+  },
+  {
+    "id": "2611.29491",
+    "title": "Meddies-PII: A Multilingual Framework for Personally Identifiable Information Extraction in Clinical De-identification",
+    "abstract": "Multilingual PII extraction in clinical text is limited by scarce governed data and by synthetic corpora whose construction is thinly documented. We present a large multilingual dataset covering seventeen languages, including seven Southeast Asian languages, and nine PII labels. We also document a detailed generation pipeline and release the complete prompts, catalogues, checks and label maps. A compact 350M-parameter BIOES token classifier trained on the resource achieves the highest score on all fifteen public benchmarks, significantly ahead of the strongest of four public systems on fourteen of them, with a mean exact-match F1 of 0.827 against 0.672 for the strongest system. We also tested it, without adaptation, on multilingual benchmarks, including two human-annotated German and Spanish clinical-style corpora, where it is competitive with the best public systems once annotation conventions are aligned, and is best in four of ten MultiGraSCCo languages; the results show that performance transfers across public benchmarks. We also analyse the data and find almost no near-duplicates and no text overlap between training and any evaluation set. The dataset, benchmark, model, generation framework and evaluation code are planned for public release upon acceptance.",
+    "authors": [
+      "Le Linh Uyen",
+      "Christian Hoang",
+      "Ho Dinh Tri",
+      "Huy Hoang Ha"
+    ],
+    "published": "2026-11-22",
+    "categories": [
+      "cs.CL"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.29491",
+    "tags": [
+      "📊 评测 / Benchmark"
+    ],
+    "primary_tag": "📊 评测 / Benchmark",
+    "medical_score": 3
+  },
+  {
+    "id": "2611.29364",
+    "title": "SleepXA: Composing Pretrained Neural and Cardiac Foundation Models for Sleep Representation Learning",
+    "abstract": "Physiological signals recorded during sleep provide synchronized views of neural, cardiac, respiratory, and other bodily systems, while preserving modality-specific information. Existing EEG and ECG foundation models already capture rich but distinct physiological structure, motivating an alternative to training a multimodal sleep model from scratch: composing existing pretrained models. We introduce SleepXA, a framework that uses synchronized polysomnography (PSG) to compose independently pretrained neural and cardiac foundation models. SleepXA combines pretrained EEG and ECG encoders with lightweight encoders for additional PSG modalities, and learns shared and modality-specific representations through sleep-guided alignment. We pretrain SleepXA on 9,230 overnight PSG recordings from three large cohorts and evaluate it on 27 downstream tasks spanning sleep representation, clinical and disease prediction, and daytime physiological transfer. SleepXA ranks among the top two methods on 22 of 27 tasks. Controlled experiments further show consistent benefits across sensor configurations and EEG-ECG backbone choices, while pretrained initialization outperforms architecture-matched training from scratch and SleepXA surpasses alternative multimodal composition strategies. These results suggest that synchronized multimodal physiology can serve as a natural interface for composing existing physiological foundation models, yielding reusable representations that extend beyond sleep to clinical and daytime physiological settings.",
+    "authors": [
+      "Xiaoyu Chen",
+      "Xiao Gu",
+      "Chao Zhang",
+      "Wen Wu",
+      "Shuaicong Hu",
+      "Qinfan Xiao"
+    ],
+    "published": "2026-11-22",
+    "categories": [
+      "cs.LG",
+      "eess.SP"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.29364",
+    "tags": [
+      "🖼️ 多模态医疗"
+    ],
+    "primary_tag": "🖼️ 多模态医疗",
+    "medical_score": 3
+  },
+  {
+    "id": "2611.29348",
+    "title": "A Multi-Criteria Evaluation of Color Normalization Methods in Histopathology: Nuclei Preservation, Artifact Sensitivity, Background Fidelity, and Downstream Performanc",
+    "abstract": "Deep learning models for nuclei detection and classification may generalize poorly across medical centers because of variations in staining and scanning. Although color normalization aims to reduce these variations, its effects on nuclear structure, background preservation, artifact sensitivity, and nuclei detection and classification performance have not been systematically evaluated. We present a procedure to benchmark 11 classical and deep learning normalization methods using 7 public and private nuclei datasets. Additionally, we investigate the effect of 7 input color spaces. The normalization methods differed in their effects on nuclear structure, background, and sensitivity to artifacts. However, detection and classification performance varied more across datasets than across normalization methods, and the input color space had limited influence. No single method performed best on all criteria, and image-level metrics did not reliably predict downstream performance, highlighting the need for nuclei- and structure-aware normalization methods. To support this work, we introduce WSI Quality Control and Normalization (WSI-QCN), a publicly available pipeline for robust whole-slide image quality assessment and color normalization; the source code is available on GitHub.",
+    "authors": [
+      "Falah Jabar",
+      "Aria Torkpour",
+      "Pasquale Lombardi",
+      "Masoud Tafavvoghi",
+      "Per Niklas Benzler Waaler",
+      "Sigve Andersen"
+    ],
+    "published": "2026-11-22",
+    "categories": [
+      "cs.CV"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.29348",
+    "tags": [
+      "📊 评测 / Benchmark"
+    ],
+    "primary_tag": "📊 评测 / Benchmark",
+    "medical_score": 2
+  }
+]
