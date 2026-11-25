@@ -1,0 +1,1198 @@
+[
+  {
+    "id": "2611.25509",
+    "title": "LingSante MedGuard Technical Report",
+    "abstract": "As medical AI is increasingly used for patient consultation and clinical decision support, identifying harmful, non-compliant, or ethically problematic responses is essential for responsible deployment. Assessing these risks requires checking clinical claims against relevant evidence, verifying calculations, and applying medical requirements under their intended conditions. We introduce LingSante MedGuard, a capability-enhanced guardrail that integrates supervision from a medical guardrail teacher model and six specialized medical capability experts into a unified model. The guardrail teacher supervises risk decisions and explanations across medical safety, compliance, and ethics, while the capability experts support medical rule understanding, numerical reasoning, multimodal hallucination detection, agentic safety verification, risk localization, and multimodal entity understanding. We consolidate these sources of supervision through offline supervised fine-tuning on teacher-generated demonstrations, followed by multi-teacher on-policy distillation using feedback on student-generated responses. We further introduce LingSante MedGuardBench, a benchmark comprising 11 risk-detection subsets spanning medical safety, compliance, and ethics. At 4B, 9B, and 27B scales, LingSante MedGuard achieves mean benchmark F1 scores of 82.3%, 82.4%, and 87.4%, respectively. The 4B model also achieves 73.9% mean accuracy across MedHallu and MedHALT-NOTA under retrieval-enabled evaluation. Additional evaluations of the verification components show improvements in evidence-supported consistency, source traceability, and rule-guided rationale quality across model scales. These results support the integration of specialized medical capabilities into a unified guardrail for medical risk assessment and evidence-based medical safety verification.",
+    "authors": [
+      "LingSante MedGuard Team"
+    ],
+    "published": "2026-11-19",
+    "categories": [],
+    "source": "HuggingFace",
+    "upvotes": 24,
+    "url": "https://arxiv.org/abs/2611.25509",
+    "tags": [
+      "📊 评测 / Benchmark",
+      "🤖 Agent",
+      "🖼️ 多模态医疗"
+    ],
+    "primary_tag": "📊 评测 / Benchmark",
+    "medical_score": 13,
+    "tldr_zh": "针对医疗AI风险识别，提出教师与能力专家统一护栏，取得最高87.4%F1及证据可验证。"
+  },
+  {
+    "id": "2611.28719",
+    "title": "KMed-31B Technical Report",
+    "abstract": "We present KMed-31B, a medical large language model post-trained from an open-weight model for on-premises deployment with limited hardware. Post-training a model for diverse medical tasks remains difficult, because improving one kind of task can lower performance on another. We attribute this to differences between tasks in expected output and available feedback. Medical question answering and diagnosis prediction have reference answers, whereas clinical inquiry has no single correct response and is judged with rubrics. We therefore divide medical training tasks into four categories by these two properties, train one specialist per category with a reward that its feedback supports, and integrate the specialists into a single student with Multi-teacher On-policy Delta Distillation (MOPD^2). For clinical inquiry, we build Synthetic Health Dialogue, a simulated corpus of consultations with lay users and clinicians whose patient cases span common clinical presentations in primary care. Relative to its base model, KMed-31B raises HealthBench Hard from 22.95 to 41.87 and HealthBench Professional from 37.92 to 50.20 in non-thinking mode, and from 23.80 to 51.48 and from 41.97 to 59.18 in thinking mode, while its scores on four multiple-choice medical benchmarks are maintained or slightly improved. KMed-31B has the highest unadjusted HealthBench Hard score among the compared models, including proprietary ones, and scores higher on HealthBench Professional than every open-weight model we compare, including models with more than ten times as many total parameters. Applied to another base model, Qwen3.8-27B, the same training recipe also raises both HealthBench scores. We describe the training recipe, data construction, and settings in detail so that institutions requiring on-premises deployment can develop medical models from open-weight foundations.",
+    "authors": [
+      "KMed Team"
+    ],
+    "published": "2026-11-21",
+    "categories": [],
+    "source": "HuggingFace",
+    "upvotes": 17,
+    "url": "https://arxiv.org/abs/2611.28719",
+    "tags": [
+      "📊 评测 / Benchmark"
+    ],
+    "primary_tag": "📊 评测 / Benchmark",
+    "medical_score": 12,
+    "tldr_zh": "针对医疗大模型多任务后训练相互干扰，提出按反馈分类训练专家并多教师蒸馏整合，取得评测提升与本地部署价值。"
+  },
+  {
+    "id": "2611.30458",
+    "title": "Decompose and Describe: Narrowing the Diagnosis-to-Report Gap in 3D CT Report Generation",
+    "abstract": "Automated 3D CT report generation could support radiology workflows, yet medical vision-language models (MedVLMs) often omit diagnostic findings from generated reports. We ask whether the diagnostic ability of these models carries over to free-form reporting. Across five MedVLMs, diagnostic VQA achieves higher macro-F1 than reports generated from the same CT studies and evaluated on the same disease categories. We call this task-dependent discrepancy the diagnosis-to-report gap. Conventional Report Adaptation improves reporting for most models but does not close the gap. To investigate and narrow it, we introduce DeCAD (Decompose CT Analysis and Describe), which progressively decomposes CT report generation at diagnostic, regional textual, and regional visual levels. The model identifies positive findings before writing a report, organizes diagnosis and description into regional tasks, and restricts each task to visual tokens from the corresponding region. Diagnostic and regional textual decomposition improve report-level diagnostic performance across the five MedVLMs, whereas regional visual decomposition provides limited additional gains. In a standard VLM without medical VQA pretraining, the first two levels remain effective; regional visual decomposition also provides further gains with a region-level contrastively pretrained encoder. Full DeCAD achieves state-of-the-art performance on CT-RATE and Merlin. Analyses show greater CT-token attention during diagnosis and higher recall of reference-positive findings in both the diagnostic output and final report than with Report Adaptation. These results show that explicitly organizing diagnosis improves diagnostic reporting and helps narrow the diagnosis-to-report gap.",
+    "authors": [
+      "Zhisong Wang",
+      "Wanxing Chang",
+      "Weiwei Cao",
+      "Fenghe Tang",
+      "Bowen Shi",
+      "Ruifeng Yuan"
+    ],
+    "published": "2026-11-23",
+    "categories": [
+      "cs.CV"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.30458",
+    "tags": [
+      "🖼️ 多模态医疗"
+    ],
+    "primary_tag": "🖼️ 多模态医疗",
+    "medical_score": 18,
+    "tldr_zh": "针对CT报告遗漏诊断，提出DeCAD分解诊断与区域描述，取得提升诊断召回、缩小差距的效果。"
+  },
+  {
+    "id": "2611.30983",
+    "title": "MedUIGym: Evaluating and Training GUI Agents for Clinical Workflows",
+    "abstract": "Automating clinical workflows requires vision-language agents that can navigate dense graphical user interfaces (GUIs) in electronic health records (EHRs) and execute precise actions, yet many medical agents still rely on text or structured tool calls. In this work, we introduce MedUIGym, a scalable interactive environment comprising 15,739 tasks from 17 benchmark sources across six clinical task families for training and evaluating clinical GUI agents. In MedUIGym, agents perceive EHR states from screenshots and execute mouse-and-keyboard actions, as well as a paired native-tool interface over identical clinical data. The environment verifies both final answers and required clinical actions, and supports parallel trajectory collection for training. Benchmarking twelve vision-language models shows that current agents struggle across diverse clinical workflows, and simply increasing reasoning effort fails to yield consistent gains. Furthermore, MedUIGym supports offline learning from GUI trajectories and online reinforcement learning from task rewards. After training, both Qwen3.5 models perform better on in-domain clinical tasks and generalize to tasks from external sources. By unifying tasks from existing benchmarks, dual-interface evaluation, and GUI trajectory collection, MedUIGym provides a testbed for studying how vision-language agents complete clinical tasks through the EHR's graphical interface. Our project page is available at https://github.com/yitong-qiao/MedUIGym.",
+    "authors": [
+      "Yitong Qiao",
+      "Lei Liu",
+      "Yue Shen",
+      "Jian Wang",
+      "Jinjie Gu",
+      "Zhixuan Chu"
+    ],
+    "published": "2026-11-23",
+    "categories": [
+      "cs.AI"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.30983",
+    "tags": [
+      "📊 评测 / Benchmark",
+      "🤖 Agent",
+      "🖼️ 多模态医疗"
+    ],
+    "primary_tag": "📊 评测 / Benchmark",
+    "medical_score": 13,
+    "tldr_zh": "针对临床GUI代理难精确操作EHR，提出MedUIGym可训练评测环境，取得当前代理不足与训练后提升泛化的结果。"
+  },
+  {
+    "id": "2611.32734",
+    "title": "ASCENT: A Benchmark for Evaluating and Advancing Stepwise Diagnostic Reasoning in Large Language Models on Common Clinical Scenarios",
+    "abstract": "Large language models (LLMs) excel at medical question answering yet are rarely evaluated on the stepwise diagnostic reasoning that defines real clinical workflows, where impressions are revised as information accumulates. We build Annotated Stepwise Clinical rEasoning for NaturalisTic Diagnosis (ASCENT), a clinician-annotated benchmark and training resource of 3,078 stepwise problems derived from MedQA-USMLE that decomposes each vignette into EMR-aligned steps (Findings, Impression, supporting Rationale), enabling evaluation of intermediate reasoning under incomplete information. Experiments and training with ASCENT revealed insights into how current LLMs handle stepwise diagnostic reasoning. Even strong reasoning models that perform well on MedQA-USMLE leave substantial headroom on ASCENT, and general-purpose frontier models trail further, exposing a persistent gap between fully informed and stepwise diagnosis. Fine-tuning Qwen2.5-7B and 32B on ASCENT yields measurable F1 gains over both pre-trained and HuatuoGPT-o1 CoT-trained baselines, with gains driven primarily by precision. Complementary robustness analyses (counterfactual perturbation, format-vs-content control, judge agreement, and rollout) further show that ASCENT-fine-tuned models rely on the diagnostic content of prior impressions rather than imitating their output format, while error propagation under rollout remains a key challenge for clinical deployment.",
+    "authors": [
+      "Yera Choi",
+      "Yeong Hwa Kim",
+      "Jaedeok Lee",
+      "Taekang Kim",
+      "Sangdoo Yun",
+      "Seong-Eun Moon"
+    ],
+    "published": "2026-11-24",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.32734",
+    "tags": [
+      "📊 评测 / Benchmark"
+    ],
+    "primary_tag": "📊 评测 / Benchmark",
+    "medical_score": 14,
+    "tldr_zh": "针对LLM缺乏逐步诊断推理评测，提出ASCENT基准并微调Qwen，提升F1且暴露误差传播挑战。"
+  },
+  {
+    "id": "2611.32094",
+    "title": "Clinical3D-Bench: Evaluating and Improving Spatial Intelligence of Multimodal LLMs in Hospital Environments",
+    "abstract": "Spatial reasoning in hospitals requires tracking look-alike equipment, interpreting patient-relative directions, and judging passage widths, yet existing benchmarks provide limited coverage of these abilities. We introduce Clinical3D-Bench, a simulated benchmark with 3,368 questions of eight types on egocentric walkthroughs of 373 hospital-room layouts. Layouts follow hospital design guidelines, answers are computed from the 3D scenes, and paired scene states test whether models change their answers when relevant evidence changes. Videos are photorealistic, and ten physicians screened the layouts. Among 35 multimodal large language models (MLLMs), the best open and proprietary models reach 45.7% and 53.6% macro accuracy, against 40.8% for an answer prior and 79.0% for physicians on a subset, and 27 of 32 open models score below 40% on two-way patient-relative directions. Fine-tuning on Clinical3D-45K, our 44,750-question training set, lifts two MLLMs 16-20 points above the best proprietary model. 3D maps given to the fine-tuned MLLM as input go largely unused: replacing them with another video's, even when they are ground truth, barely changes its accuracy. The proposed GeoJeV instead lets the MLLM compute with 3D: it reconstructs a scene memory from each video, selects 3D operations and their arguments from the MLLM's question state, and adds their evidence to its option scores. It achieves the highest accuracy of all evaluated models, narrowing the gap to physicians.",
+    "authors": [
+      "Yang Bai",
+      "Yingzhi Xia",
+      "Ling Lin",
+      "Jun Cheng",
+      "Lin Fu",
+      "Huazhu Fu"
+    ],
+    "published": "2026-11-24",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "source": "arXiv + HF 🔥",
+    "upvotes": 2,
+    "url": "https://arxiv.org/abs/2611.32094",
+    "tags": [
+      "📊 评测 / Benchmark",
+      "🖼️ 多模态医疗"
+    ],
+    "primary_tag": "📊 评测 / Benchmark",
+    "medical_score": 5,
+    "tldr_zh": "针对医院空间推理评测不足，提出3D基准与GeoJeV，评测显示模型仍弱，GeoJeV最高并缩小与医生差距。"
+  },
+  {
+    "id": "2611.31003",
+    "title": "High-Receiver-Bandwidth MRI Near Metal Implants with Motion-Consistent Rep2Rep Denoising",
+    "abstract": "Purpose: To develop and evaluate a self-supervised denoising approach using motion-consistent Rep2Rep learning to enable high-receiver-bandwidth MRI for reduced metal-induced distortion. Methods: Motion-consistent Rep2Rep generates anatomically consistent training repetitions in the presence of inter-repetition motion by combining two acquired repetitions and splitting the combined k-space along the readout direction. The model was trained on 134 clinical low-receiver-bandwidth (300 Hz/pixel) MRI datasets and applied to 59 high-receiver-bandwidth (1028 Hz/pixel) MRI datasets. Three musculoskeletal radiologists independently scored low- and high-receiver-bandwidth images (before and after denoising) in a blinded manner for metal artifact reduction, image sharpness, perceived SNR, and overall image quality. A separate blinded reader preference evaluation was performed to compare motion-consistent Rep2Rep with standard Rep2Rep. Results: High-receiver-bandwidth MRI significantly reduced metal-induced artifact, while motion-consistent Rep2Rep improved perceived SNR and overall image quality. Compared to clinical low-receiver-bandwidth MRI, denoised high-receiver-bandwidth MRI achieved significantly higher metal artifact reduction scores (sagittal: 3.69 vs 3.01; axial: 3.83 vs 3.05; both P<0.0001) and comparable overall image quality scores (sagittal: 4.03 vs 3.98, P = 0.5391; axial: 3.95 vs 3.87, P=0.1266). The high-receiver-bandwidth axial protocol also reduced acquisition time by 47%. Motion-consistent Rep2Rep better preserved fine anatomical details than standard Rep2Rep. Conclusion: High-receiver-bandwidth MRI with motion-consistent self-supervised Rep2Rep denoising reduces metal-induced artifact without requiring dedicated high-receiver-bandwidth training data. This offers a practical approach for MRI near metal implants, such as postoperative cervical spine imaging.",
+    "authors": [
+      "Iman Khodarahmi",
+      "Renqing Luo",
+      "Nikola Janjušević",
+      "Christopher J Burke",
+      "Shana G Neumann",
+      "Yao Wang"
+    ],
+    "published": "2026-11-23",
+    "categories": [
+      "physics.med-ph"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.31003",
+    "tags": [
+      "🩺 医疗 LLM"
+    ],
+    "primary_tag": "🩺 医疗 LLM",
+    "medical_score": 11,
+    "tldr_zh": "针对金属植入物MRI高接收带宽伪影与噪声，提出运动一致Rep2Rep自监督去噪，显著减少伪影并保持图像质量。"
+  },
+  {
+    "id": "2611.33012",
+    "title": "Can LLM Judges Catch Unsafe Clinical Actions? A Fault-Injection Study",
+    "abstract": "As clinical AI agents begin to interact with electronic health records (EHRs), large language models (LLMs) are increasingly used to evaluate their actions. But how reliably can these judges recognize clinically dangerous mistakes, especially when an agent appears to have completed its task successfully? We investigate this question using MedAgentBench by introducing controlled clinical errors into verified agent trajectories. The experiments include 416 faulty trajectories, eight error categories, and six open-weight LLM judges. By comparing each faulty trajectory with its correct counterpart, we measure whether judges genuinely recognize errors rather than simply flagging more actions as unsafe. The findings show that access to clinical evidence significantly improves judge reliability. When shown only the final answer, judges cannot distinguish errors that leave it unchanged, while flagging 56% of correct trajectories. With full trajectory information, the ability to distinguish unsafe actions from correct ones reaches a score of 0.75, and providing actual EHR responses improves discrimination by 0.39. Surprisingly, including the agent's reasoning does not improve overall performance and reduces detection of incorrectly reported clinical values by 0.18, which remain the hardest errors to detect. MedGemma performed worse than the general-purpose model and was the only judge to miss potentially dangerous medication overdoses. We also find that the benchmark's original grader accepts all 38 trajectories with an intentionally skipped laboratory check, while combining LLM judges with a rule-based checker informed by the full EHR record detects 97% of injected faults.",
+    "authors": [
+      "Neda Ghafouri"
+    ],
+    "published": "2026-11-24",
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.33012",
+    "tags": [
+      "📊 评测 / Benchmark",
+      "🤖 Agent"
+    ],
+    "primary_tag": "📊 评测 / Benchmark",
+    "medical_score": 8,
+    "tldr_zh": "针对LLM裁判难以识别临床危险动作，提出注入错误并比较轨迹的评测，取得结合EHR与规则检查可检出97%注入故障。"
+  },
+  {
+    "id": "2611.30916",
+    "title": "TrialAgentBench: Evaluating AI Agents for Clinical-Trial Analysis and Long-Horizon Drug-Development Decisions",
+    "abstract": "Clinical drug development is a long-horizon, high-stakes process requiring sequential decisions based on information that costs money and time to acquire. AI agents have demonstrated capabilities for scientific analysis, but there is no established way to evaluate them on these decisions, as real trials are expensive, involve people, and never reveal the counterfactual. We introduce TrialAgentBench, a benchmark for evaluating AI agents on clinical trial analysis and drug development decision-making using simulated trials where the truth is known, embedded within the data records of a fictional drug sponsor. We publicly release nearly 3,500 tasks, varying from analysing a single trial to managing multi-phase programmes with budget and time constraints. We score each analysis by rerunning its code on new trials, and each programme by the value its decisions achieve. Across 24 closed- and open-weight models, the strongest agents can analyse raw, messy trial records to within 6% of a process-aware analysis, even when an assumption is violated, with 95% confidence intervals containing the true effect 94--95% of the time. Over the prior year, the best model improved from 19% above this analysis, with serious misses on 15% of tasks, to 3.5% and 1%. What limits them is decision-making from evidence under uncertainty: when to correct, what evidence to buy, when to stop. The strongest agents are overly careful, correcting on 83% of tasks with equal recording errors, where it is unnecessary. On drug programmes, the best agent has substantial headroom, reaching 48% of the value an oracle achieves against 58% for a rule-based developer, with others falling 24 to 66% short. Model generations show ongoing improvements in handling data and evidence, with substantial variation. The strongest models can act as competent analysts, but do not yet make reliable long-horizon decisions.",
+    "authors": [
+      "Bradley Segal",
+      "William Bolton",
+      "Philip Torr",
+      "David Clifton",
+      "Lei Clifton"
+    ],
+    "published": "2026-11-23",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.30916",
+    "tags": [
+      "📊 评测 / Benchmark",
+      "🤖 Agent"
+    ],
+    "primary_tag": "📊 评测 / Benchmark",
+    "medical_score": 8,
+    "tldr_zh": "针对临床试验分析与长期决策评估缺失，提出TrialAgentBench模拟基准，取得强模型分析较准但决策仍弱的结论。"
+  },
+  {
+    "id": "2611.32247",
+    "title": "Refining and Aligning Clinical Reasoning with Health Guidelines via Formal Constraints",
+    "abstract": "Clinical reasoning from incomplete or conflicting patient evidence must account for low-probability but high-risk concerns while remaining grounded in health guidelines. We introduce VerClin, an explainable framework that extracts guideline conditions, exclusions, recommendations, and priorities into executable knowledge and represents patient conversations as scoped cases. A deterministic four-valued reasoner produces traceable guideline matches while preserving uncertainty and enforcing exclusions. Multiple specialty agents then screen matched guidelines for case applicability, and a consultation model synthesizes accepted guidance through specialty recommendations and a sentence-preserving formal-constraint channel. We present accepted guidance in ascending order of the sum of its priority and trigger-strength ranks, which can surface high-risk guidance with weaker triggers. VerClin outperforms direct generation and Top-5 RAG on HealthBench Hard and HealthBench Professional. On the LLMEval-Med subset, it outperforms direct generation and ties Top-5 RAG. Component analyses further examine semantic closure, example-guided refinement, specialty screening, and constraint-conditioned delivery.",
+    "authors": [
+      "Xiaoyang Fan",
+      "Yufan Cai",
+      "Zhe Hou",
+      "Jin Song Dong"
+    ],
+    "published": "2026-11-24",
+    "categories": [
+      "cs.AI"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.32247",
+    "tags": [
+      "📊 评测 / Benchmark",
+      "🤖 Agent",
+      "🔍 RAG"
+    ],
+    "primary_tag": "📊 评测 / Benchmark",
+    "medical_score": 6,
+    "tldr_zh": "针对证据不全与指南对齐的临床推理，提出VerClin可执行约束推理与专科筛选框架，在医疗基准优于直接生成并保持可追溯。"
+  },
+  {
+    "id": "2611.30845",
+    "title": "Quantifying and calibrating precision gain from covariate adjustment in clinical trials with binary endpoints",
+    "abstract": "Covariate adjustment is widely used in randomized clinical trials to improve estimation and inference of treatment effects. For continuous endpoints, the reasoning is straightforward: prognostic baseline covariates explain outcome variability and thereby increase precision. For binary endpoints, however, the situation is more complex because conditional and marginal effects generally differ in nonlinear outcome models such as logistic regression. We develop a theoretical framework for quantifying the maximum attainable first-order precision gain from covariate adjustment when estimating marginal treatment effects for binary endpoints. We derive a closed-form identity showing that precision-gain potential is governed by an estimand- and allocation-specific combination of the treatment-specific risk functions. Building on this identity, we introduce marginal prognostic strength as a population-level measure of prognostic information and characterize when it determines precision-gain potential and when the two quantities decouple. Specifically, substantial prognostic information within both treatment arms need not translate into improved precision for the marginal treatment effect when covariates are predictive on the target effect scale. We further develop a calibration algorithm for methodological simulation studies that preserves prespecified conditional outcome structures and marginal risks while allowing data-generating mechanisms to be calibrated by marginal prognostic strength and evaluated in terms of estimand-specific precision-gain potential. Together, these results provide a theoretical and practical framework for understanding, quantifying, and calibrating potential precision gains from covariate adjustment for binary endpoints.",
+    "authors": [
+      "Jannik Hammerschmied",
+      "Christian Stock",
+      "Martin Schnuerch"
+    ],
+    "published": "2026-11-23",
+    "categories": [
+      "stat.ME"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.30845",
+    "tags": [
+      "🩺 医疗 LLM"
+    ],
+    "primary_tag": "🩺 医疗 LLM",
+    "medical_score": 7,
+    "tldr_zh": "针对二元终点试验边际治疗效应精度增益难量化，提出理论框架与校准算法，明确上限并支持模拟评估。"
+  },
+  {
+    "id": "2611.32044",
+    "title": "CHORAL: A Multi-Agent Scaffold for Longitudinal Prognostic Reasoning from Patient-Generated Health Data",
+    "abstract": "Longitudinal patient-generated health data can inform prognostic reasoning about how patients' conditions may evolve between follow-up visits. Existing approaches summarize trajectories or predict symptom states, but provide limited support for examining how heterogeneous evidence informs prognosis. We present CHORAL, a multi-agent scaffold that forms domain-specific appraisals before cross-domain synthesis and review, preserving evidence and revisions. Informed by a formative study with 12 psychiatrists, we evaluated CHORAL quantitatively and with 22 clinicians. CHORAL achieved balanced accuracy comparable to persistence (0.673 vs. 0.672), while detecting 40% of LOW-to-HIGH deterioration cases missed by persistence. Versus a single-agent baseline, it improved balanced accuracy from 0.639 to 0.673 and evidence coverage from 70.1% to 89.2%. Clinicians rated CHORAL significantly higher for evidence appraisal, alternative interpretations, grounds for challenge, and distinguishing what to rely on from what required verification. These findings show how multi-agent deliberation can support review by exposing alternative interpretations and grounds for verification.",
+    "authors": [
+      "Youngji Koh",
+      "Esther Kang",
+      "Gyuna Kim",
+      "Seungwan Jin",
+      "Hyunsoo Lee",
+      "Kyungsik Han"
+    ],
+    "published": "2026-11-24",
+    "categories": [
+      "cs.HC"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.32044",
+    "tags": [
+      "🤖 Agent",
+      "📚 综述 / Survey"
+    ],
+    "primary_tag": "🤖 Agent",
+    "medical_score": 5,
+    "tldr_zh": "针对纵向患者生成数据预后推理支持不足，提出多智能体分域评估与跨域综合审查，取得证据覆盖提升并帮助识别恶化风险。"
+  },
+  {
+    "id": "2611.32021",
+    "title": "HuluOPD: Unifying Heterogeneous Medical Specialists into One Lightweight Model with Unlabeled Prompts",
+    "abstract": "Specialist medical vision-language models (VLMs) are strong within their specialties but hard to unify: their training data are often private, and independently developed specialists cannot be assumed to share an architecture. Deploying these large models separately is costly. We present HuluOPD, an on-policy distillation recipe that unifies heterogeneous specialists into one lightweight VLM using only unlabeled prompts, without requiring reference answers or the specialists' training data. The lightweight model answers each prompt, and the specialist of the prompt's modality supervises its response; a continuation-aligned cross-tokenizer loss makes this possible even when they differ in architecture and tokenizer. We apply HuluOPD to five specialists, for ultrasound, pathology, optical coherence tomography, fundus photography, and dental imaging. To distill and evaluate them, we build HuluOPDCorpus, 914k unlabeled prompts, and HuluOPDBench, 47k held-out test items, from over 90 public datasets, and score all models under one protocol on 132k test items, including third-party benchmarks. A single model with 10% of the five specialists' combined parameters retains 94% of their question-answering performance, and one with 2% retains 89%. To our knowledge, this is the first demonstration of unifying heterogeneous medical specialist VLMs without requiring their training data or a shared architecture.",
+    "authors": [
+      "Yuncheng Zhang",
+      "Songtao Jiang",
+      "Yitian Tang",
+      "Zijie Meng",
+      "Zihan Xu",
+      "Xuxiang Ren"
+    ],
+    "published": "2026-11-24",
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.32021",
+    "tags": [
+      "📊 评测 / Benchmark",
+      "🖼️ 多模态医疗"
+    ],
+    "primary_tag": "📊 评测 / Benchmark",
+    "medical_score": 5,
+    "tldr_zh": "针对异构医学VLM难统一，提出基于未标注提示的在线蒸馏，取得10%参数下保留94%性能。"
+  },
+  {
+    "id": "2611.31465",
+    "title": "A dataset of clinically similar image pairs from citation-linked case reports for medical image retrieval",
+    "abstract": "Retrieving images of patients clinically similar to a given patient can support diagnosis, teaching and research. Training and evaluating retrieval systems requires knowing which images of different patients show the same finding, and existing datasets are small or narrow in scope. We construct PMC-PaIR, a dataset of 86,144 pairs of clinically similar images from 56,013 open-access PubMed Central case reports, which often document rare or challenging presentations. We develop an approach that follows citations, which often link case reports of similar patients. To determine what two linked cases share clinically, it prompts large language models to generate and answer hierarchical questions, from modality to diagnosis and findings, and to match images by caption using the answers. Experts find the pairs highly accurate, and this question-guided approach finds twice as many correct pairs as direct matching. Fine-tuning BiomedCLIP on PMC-PaIR improves retrieval in all modality, anatomy and diagnosis categories tested, for image-only queries and image queries with a short text naming the finding. We release the dataset and the automated pipeline, which can extend PMC-PaIR as new case reports are published.",
+    "authors": [
+      "Guy Shmueli",
+      "Keno K. Bressem",
+      "Tom Hope"
+    ],
+    "published": "2026-11-23",
+    "categories": [
+      "cs.CV",
+      "cs.CL",
+      "cs.IR"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.31465",
+    "tags": [
+      "🩺 医疗 LLM"
+    ],
+    "primary_tag": "🩺 医疗 LLM",
+    "medical_score": 6,
+    "tldr_zh": "针对医学图像检索缺大规模临床相似图像对，提出引用链接与大模型问答构建数据集并微调模型，取得检索提升并开源。"
+  },
+  {
+    "id": "2611.32382",
+    "title": "Cancer multi-omics joint dimension reduction leads to reliable and interpretable survival predictions",
+    "abstract": "Multi-omics studies are becoming more and more frequent, and are especially suited to decrypt the complexity of dysregulation happening in cancer. In this context, improving prognostication through interpretable methods could provide better patient stratification and help identify new prognostic biomarkers and therapeutic targets. Multi-omics data are however very often high-dimensional (few patients/high number of variables). A possible solution to high-dimensionality is Joint Dimension Reduction (JDR) methods, which compute a low-dimensional latent space from multi-omics data. In this work, we benchmark 12 JDR methods on 18 different TCGA cancer datasets. Survival prediction is achieved through a two-step process: the estimation of a low-dimensional multi-omics latent space followed by survival prediction with or without additional clinical data. We had to equip 4 methods with the ability to predict the survival of new patients. Results reveal that JDR methods can improve survival prediction with clinical data, and match the predictive performance of clinical data alone, with a high variability between different cancers. Among JDR methods, JIVE and RGCCA show superior performance. In a subsequent bootstrap analysis, JDR methods identify reliable prognostic biomarkers across cancers. We propose a clinically relevant interpretation of such markers on Low-Grade Glioma. Reproducible codes are available on https://github.com/vlegoff/MultiOBenchmark.",
+    "authors": [
+      "Vincent Le Goff",
+      "Vincent Guillemot",
+      "Cathy Philippe",
+      "Wiam Ahdidou",
+      "Gwendoline Mendes",
+      "Jean-François Deleuze"
+    ],
+    "published": "2026-11-24",
+    "categories": [
+      "q-bio.GN"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.32382",
+    "tags": [
+      "📊 评测 / Benchmark"
+    ],
+    "primary_tag": "📊 评测 / Benchmark",
+    "medical_score": 5,
+    "tldr_zh": "针对癌症多组学高维生存预测，提出十二种联合降维方法的基准评估，取得改善结合临床数据的预测并可识别可靠标志物的结果。"
+  },
+  {
+    "id": "2611.32371",
+    "title": "A Description-Derived Drug-Drug Interaction Benchmark Reveals Split-Dependent Molecular Representation Rankings",
+    "abstract": "Drug-drug interaction (DDI) prediction is clinically important and poses a distinct challenge for molecular representation learning. Unlike single-molecule property prediction, DDI requires a predictor to compose two molecular representations into a relational outcome. DrugBank provides curator-authored DDI descriptions rather than ready-made categorical labels, so a categorical prediction target must first be derived from the text. We construct a dataset of DDI pairs by mapping processed descriptions to six text-derived categories and define a benchmark with four holdout regimes that restrict train-test chemical overlap from random pairs to scaffold-disjoint evaluation. We then use this benchmark to compare molecular fingerprints, pretrained sequence representations, and graph-derived features across five seeds and multiple classifier heads. Molecular fingerprints lead the high- overlap random split, whereas graph-derived representations lead the drug- and scaffold-holdout regimes, with the gap increasing as molecular overlap is restricted. Changing the classifier head affects absolute performance but not the relative representation ranking. These results show that representation rankings change with test-set novelty under a fixed description-derived label space.",
+    "authors": [
+      "Manel Gil-Sorribes",
+      "Isaac Filella-Merce",
+      "Alexis Molina"
+    ],
+    "published": "2026-11-24",
+    "categories": [
+      "q-bio.BM",
+      "cs.LG"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.32371",
+    "tags": [
+      "📊 评测 / Benchmark"
+    ],
+    "primary_tag": "📊 评测 / Benchmark",
+    "medical_score": 5,
+    "tldr_zh": "针对DDI分子表示排名受划分影响，提出描述派生类别的多划分基准，取得高重叠时指纹领先、外推时图表示领先的结果。"
+  },
+  {
+    "id": "2611.32127",
+    "title": "EnSurv: Deep Generative Survival Modeling with Application to Kidney Graft Outcomes",
+    "abstract": "Kidney transplantation is the optimal treatment for life-threatening end-stage renal disease, providing significant survival advantages over dialysis. Given the severe shortage of donor organs, accurately predicting the time to premature graft failure is an essential clinical task for optimizing organ allocation and tailoring individualized immunosuppressive therapies. This study is motivated by a comprehensive United Network of Organ Sharing (UNOS) dataset containing 243,443 kidney transplant records with complex multi-region structures and high right-censoring rates. We propose EnSurv (survival engression), a deep generative survival framework designed to capture complex, non-linear clinical covariate interactions for modeling time to graft failure. Within a pre-additive noise model (pre-ANM) family, EnSurv optimizes an energy score augmented with pooled Kaplan-Meier tail completion to handle right-censoring. We identify the pooled-completion target of the objective, establish consistency for its best approximation within the pre-ANM family, and give conditions and error bounds for its relation to true conditional graft survival. EnSurv also provides global explainability through summaries of fitted feature weights and incorporates domain constraints through established clinical directions using a soft gradient penalty. Extensive simulation experiments were conducted to evaluate the performance of the proposed method in comparison with existing methods. Application to the UNOS cohort demonstrates that EnSurv effectively models individual and region-level effects, consistently outperforming baselines across evaluation metrics encompassing discrimination, calibration, and accuracy.",
+    "authors": [
+      "Rajdeep Pathak",
+      "Tamalika Koley",
+      "Shreyashi Basak",
+      "Dipankar Bandyopadhyay",
+      "Tanujit Chakraborty"
+    ],
+    "published": "2026-11-24",
+    "categories": [
+      "stat.ML",
+      "cs.LG"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.32127",
+    "tags": [
+      "🩺 医疗 LLM"
+    ],
+    "primary_tag": "🩺 医疗 LLM",
+    "medical_score": 5,
+    "tldr_zh": "针对肾移植移植物失效时间预测的右删失与复杂交互，提出EnSurv深度生成生存模型，在UNOS队列中优于基线。"
+  },
+  {
+    "id": "2611.31521",
+    "title": "PatientFlowSynth: Evaluating FHIR Agents with Matched Patient Charts",
+    "abstract": "Agents that search patient charts must classify claims from retrieved records, including cases with missing or conflicting evidence. In Fast Healthcare Interoperability Resources (FHIR), status fields can change how those records should be interpreted. PatientFlowSynth provides 18,000 tasks from 225 synthetic patients and 18 templates that hold the patient, question, and retrieval program fixed across chart variants representing four evidence states. Re-executing the program verifies each variant's reference answer, evidence sets, and search requirements. Strict success requires a completed response with correct labels and citations exactly matching an accepted evidence set retrieved during the episode. Where required, a tool response must also show a complete search at the specified scope. In a study using GPT-5.6 Luna and 225 synthetic patients (3,600 matched pairs), explicit Encounter-status guidance increased strict success from 40.7% to 51.3% (+10.6 percentage points; 95% patient-bootstrap confidence interval, 8.4 to 12.8). Among cases whose primary reference label was insufficient evidence, label agreement fell from 49.2% to 29.3%. A prespecified two-model replication reproduced both changes. Failed retrieval can mask interpretation errors by producing a correct insufficient-evidence label without examining the relevant records. Additional model comparisons showed that the benefit of guidance was model-dependent. Retrieval, citation, and classification should be evaluated separately.",
+    "authors": [
+      "Anthony Cuturrufo",
+      "Ratul Ghosh",
+      "Devashish Khatwani",
+      "Krishnaram Kenthapadi"
+    ],
+    "published": "2026-11-23",
+    "categories": [
+      "cs.AI"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.31521",
+    "tags": [
+      "🤖 Agent"
+    ],
+    "primary_tag": "🤖 Agent",
+    "medical_score": 5,
+    "tldr_zh": ""
+  },
+  {
+    "id": "2611.30951",
+    "title": "Evaluable Language-Model Treatment Policies for Sepsis Resuscitation via Offline Value-Guided Selection",
+    "abstract": "Offline treatment learning must balance imitation, which stays close to logged evidence but ignores outcomes, against value maximisation, which uses outcomes but drifts toward treatments the records cannot verify. Numerical reinforcement learning strikes this balance during training. For large language models (LLMs), directly using sparse retrospective outcomes for fine-tuning raises challenges of delayed credit assignment and limited evidence for alternative treatments. We present R-LLMC, which strikes the balance at inference for sepsis resuscitation. A behaviour-supervised LLM, decoded into an exact distribution over 25 vasopressor-fluid actions, proposes clinician-anchored candidates; an offline critic selects among them by estimated long-term value. The policy has a closed form for off-policy evaluation, and its rationale is written after selection, so explanation cannot steer treatment. In experiments on held-out MIMIC-III patients, R-LLMC exceeded the clinician reference in doubly robust value by +0.214 (95\\% CI 0.091-0.300), with fitted Q evaluation agreeing.",
+    "authors": [
+      "Yue Pei",
+      "Shining Bo",
+      "Yingying Zhang",
+      "Qinggang Ge",
+      "Zhiling Zhao",
+      "Jian Cheng"
+    ],
+    "published": "2026-11-23",
+    "categories": [
+      "cs.LG"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.30951",
+    "tags": [
+      "🩺 医疗 LLM"
+    ],
+    "primary_tag": "🩺 医疗 LLM",
+    "medical_score": 5,
+    "tldr_zh": "针对脓毒症策略难平衡模仿与价值，提出R-LLMC以LLM候选和离线价值选择，取得可评估策略，DR值超医生+0.214。"
+  },
+  {
+    "id": "2611.30675",
+    "title": "Empirical Margin Sensitivity: An Interventional Neuron-Level Probe of Post-Trained Medical LLMs",
+    "abstract": "Medical post-training raises benchmark accuracy, but accuracy does not show which internal components a model's decisions depend on, or whether components that support one benchmark also support another. We apply the weight-space intervention paradigm of ROME and MEMIT at the granularity of one MLP down-projection column. Our measurement, Empirical Margin Sensitivity (EMS), replaces each coordinate magnitude of a column by its mean while preserving the column's sign pattern and L1 scale, and records the resulting change in the logit margin between the correct option and its hardest-wrong competitor. This isolates the margin's dependence on a column's fine-grained coordinate structure while the column stays in place. We discover high-EMS columns (anchors) on MedQA in ten public checkpoints (four general-purpose bases and six medical post-trained variants) across the Gemma, Llama, Qwen, and AFM families, and measure the same columns on MedMCQA and PubMedQA. Mean-ablating each discovered anchor set lowers MedQA accuracy in all six post-trained models, by 6 to 28 points. In the two pure-SFT checkpoints, crushing anchors raises the PubMedQA margin on correctly answered items (negative EMS), and anchors with this property sit significantly deeper than the same model's other anchors; the four checkpoints trained with RL or mixed recipes show positive PubMedQA EMS and no significant depth shift. The depth association recurs in each of three held-out checkpoints. Because the checkpoints differ in data and pipeline as well as objective, we report these as per-checkpoint observations.",
+    "authors": [
+      "Aniruddh Shreyas",
+      "Aarnav Kembhavi",
+      "Minal Moharir"
+    ],
+    "published": "2026-11-23",
+    "categories": [
+      "cs.CL"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.30675",
+    "tags": [
+      "📊 评测 / Benchmark"
+    ],
+    "primary_tag": "📊 评测 / Benchmark",
+    "medical_score": 5,
+    "tldr_zh": "针对医疗大模型后训练只提升基准准确率而难辨内部决策依赖，提出列级权重干预与边际敏感性，发现锚点列消融会降低问答准确率。"
+  },
+  {
+    "id": "2611.32993",
+    "title": "Decision-Native Multimodal Clinical Modeling via Anatomical Grounding and Confidence Calibration",
+    "abstract": "Structured clinical decisions from volumetric computed tomography (CT) require anatomically grounded predictions and calibrated confidence estimates. However, existing 3D medical multimodal models often suffer from uncalibrated autoregressive decoding and shortcut reliance on irrelevant anatomical regions. We introduce Radev, a decision-native multimodal model that integrates anatomy-guided visual compression, direct candidate prediction, and counterfactual confidence supervision. To bridge global context with fine-grained slice details, a frozen 3D encoder extracts reusable organ-level features, which are dynamically selected by the query to attend to 2D slice features within predicted anatomical bounds. The resulting compact visual tokens enable the language backbone to estimate candidate probabilities in a single forward pass without autoregressive decoding. We further propose Counterfactual-Calibrated Training (CCT) to compare predictions under intact and intervened organ representations. CCT encourages confidence to decrease when removing target-organ evidence degrades decision quality, while penalizing excessive confidence drops under unrelated-organ removal. To facilitate rigorous evaluation, we construct CT-Verdict, a comprehensive benchmark spanning binary finding presence, multiple-choice questions, and ordinal severity assessment across both in-distribution and external cohorts. Extensive experiments demonstrate that Radev significantly outperforms state-of-the-art methods in both decision accuracy and confidence calibration, while generalizing robustly under distribution shifts. Project page at https://juntaojianggavin.github.io/projects/Radev/",
+    "authors": [
+      "Juntao Jiang",
+      "Wenqi Zhong",
+      "Guangyu Guo",
+      "Dexia Chen",
+      "Yilong Hu",
+      "Yunhao Bai"
+    ],
+    "published": "2026-11-24",
+    "categories": [
+      "cs.CV"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.32993",
+    "tags": [
+      "📊 评测 / Benchmark",
+      "🖼️ 多模态医疗"
+    ],
+    "primary_tag": "📊 评测 / Benchmark",
+    "medical_score": 3,
+    "tldr_zh": "针对三维CT模型置信未校准并依赖无关区域，提出解剖引导压缩、直接预测和反事实校准，取得准确率、校准与泛化提升。"
+  },
+  {
+    "id": "2611.32657",
+    "title": "GeoSurge: Geometry-Grounded Multimodal Reasoning for Auditable Liver Resection Planning",
+    "abstract": "Surgical resection planning centers on generating executable resection surfaces from anatomical evidence and operative constraints. Medical multimodal foundation models enable anatomical understanding, and segmentation models predict resection regions, but neither translates these capabilities into explicitly constrained, executable resection surfaces. We present GeoSurge, an anatomy-grounded framework that combines mask-derived metrics with structure-aware point-cloud tokens to generate executable, editable resection surfaces. To make resection geometry learnable and editable, GeoSurge maps actions to parametric geometry through a surface-action grammar. Using this grammar, anatomy-oriented and tumor-centered templates generate candidates, which are filtered by hard constraints and semantic deduplication. Training supervision is then derived from candidate-expert geometric agreement and independently recomputed feasibility metrics. At inference, the reasoner uses patient evidence and surgical requirements to select or revise an action, which an independent geometry engine subsequently materializes and verifies. GeoSurge achieves the best overall scores on DeepTumour Liver and CRLM-QA, improving the constraint satisfaction rate from 73% to 100% on CRLM and from 56% to 99% on GeoSurge-Bench.",
+    "authors": [
+      "Wenjie Deng",
+      "Zijian Tu",
+      "Xueyin Zhou",
+      "Huayi Wang",
+      "Zhuoyun Du",
+      "Mingyu Chen"
+    ],
+    "published": "2026-11-24",
+    "categories": [
+      "cs.AI"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.32657",
+    "tags": [
+      "🖼️ 多模态医疗"
+    ],
+    "primary_tag": "🖼️ 多模态医疗",
+    "medical_score": 4,
+    "tldr_zh": "针对肝切除规划难生成受约束可执行切除面的问题，提出GeoSurge，以表面动作语法和几何引擎生成并验证，提升约束满足率。"
+  },
+  {
+    "id": "2611.31470",
+    "title": "CRAB-H: Task-Centric Certification for Healthcare Autonomous Systems",
+    "abstract": "This paper introduces CRAB H as a task-centric certification methodology for healthcare autonomous systems. CRAB H extends the ARC governance architecture by introducing the task as a first-class governance object, represented through Task Requirement Profiles TRP H. Each profile defines the cognitive capabilities, governance constraints, evidentiary requirements, and operational assumptions necessary for the safe execution of a specific healthcare activity. Rather than asking whether a robot achieves a sufficiently high benchmark score, CRAB H asks whether demonstrated capabilities satisfy the requirements of the task. Certification becomes a comparison between demonstrated capability and required capability. A reliability-gated assurance allocation mechanism routes cognitive dimensions that cannot be reproducibly evaluated to LEA operational requirements rather than discarding them. Governance integrity is preserved: unreliable dimensions are governed, not ignored. The Capability Margin is defined as the threshold-based conjunction of per-dimension compliance determinations, not as a subtracted scalar preserving non compensatory governance logic appropriate for safety-critical healthcare deployment",
+    "authors": [
+      "Tord Johan Eide",
+      "Einar Holt"
+    ],
+    "published": "2026-11-23",
+    "categories": [
+      "cs.RO",
+      "cs.HC",
+      "eess.SY"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.31470",
+    "tags": [
+      "📊 评测 / Benchmark"
+    ],
+    "primary_tag": "📊 评测 / Benchmark",
+    "medical_score": 4,
+    "tldr_zh": "针对医疗自主系统认证脱离任务，提出CRAB-H任务中心认证，以能力-要求匹配和门控保留不可靠维度治理，支撑安全关键部署。"
+  },
+  {
+    "id": "2611.31451",
+    "title": "A multimodal foundation model for tissue proteomics and morphology in cancer",
+    "abstract": "Cancer diagnosis, prognosis, and treatment decisions increasingly rely on integrating tissue morphology with specific molecular readouts of the tumor and its microenvironment. H&E histopathology provides scalable morphology, whereas multiplex spatial proteomics quantifies dozens of proteins in situ with spatial context, but remains selectively deployed, often with different marker panels across cohorts. This creates a translational bottleneck: most patients lack high-depth molecular profiling, and existing models rarely integrate morphology and spatial molecular data in a single framework. We present VirTues-M2, a multimodal foundation model that jointly learns from H&E and spatial proteomics using a novel vision transformer-based architecture. By encoding marker identity during pretraining, VirTues-M2 is robust to missing modalities, imperfect modality pairing or registration, and variable marker panels, enabling unified inference for tissue phenotyping, panoptic cell segmentation, virtual staining, annotation-free biomarker discovery, and reinforcement learning-based adaptive marker panel selection to reduce assay burden. As a concrete demonstration of translational utility, in a newly collected cohort of 1,053 treatment-naive non-small-cell lung cancer (NSCLC) patients with paired spatial proteomics and H&E, VirTues-M2 discovers high-risk and low-risk tissue signatures that stratify overall survival in both the discovery cohort and an independent validation cohort, outperforming current state-of-the-art stratification schemes; all enabled by VirTues-M2's ability to jointly analyze both modalities within a single model.",
+    "authors": [
+      "Benedikt von Querfurth",
+      "Lukas Klein",
+      "Cédric Vincent-Cuaz",
+      "Eeshaan Jain",
+      "Yexiang Cheng",
+      "Johann Wenckstern"
+    ],
+    "published": "2026-11-23",
+    "categories": [
+      "q-bio.QM",
+      "cs.CV"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.31451",
+    "tags": [
+      "🖼️ 多模态医疗"
+    ],
+    "primary_tag": "🖼️ 多模态医疗",
+    "medical_score": 4,
+    "tldr_zh": "针对癌症病理形态与空间蛋白整合不足，提出多模态基础模型VirTues-M2，在肺癌队列实现风险分层并优于现有方案。"
+  },
+  {
+    "id": "2611.30911",
+    "title": "Do Waste Classifiers Recognise Items They Have Never Seen? Object-Disjoint Evaluation on Household and Medical Waste",
+    "abstract": "Automatic waste classification supports source separation, which enables recycling and keeps hazardous medical items out of household waste. Waste classification studies often report near-perfect accuracy on random image splits, which put photographs of one item in both training and test sets. To measure how well classifiers recognise items they have never seen, we built BanglaWaste-23, with 4,160 images of 172 objects in 23 household and medical waste classes from Bangladesh. Every image also records which physical item it shows. We evaluated 11 ImageNet-pretrained models and two models trained from scratch (a compact custom network and MobileNetV3-L) using object-disjoint five-fold cross-validation and a random split. On unseen objects, the best pretrained model reached a macro-averaged F1 score of 98.8%, and six models were statistically tied. The random split overstated from-scratch accuracy by 15 to 19 percentage points. The from-scratch models also missed 11 to 13% of medical items, against under 1% for pretrained models. On a second dataset from Dhaka, pretrained accuracy fell by 15 to 22 points. Classifiers should therefore be evaluated on unseen objects, with random-split results read as an upper bound. The data are on Zenodo and the code at https://github.com/saadbaust/BanglaWaste-23.",
+    "authors": [
+      "Nusrat Jahan",
+      "Mst. Eshrat Jahan Esha",
+      "Masuma Sadia",
+      "Saad Ahmed",
+      "Md Zahim Hassan",
+      "S M Jahangir Alam"
+    ],
+    "published": "2026-11-23",
+    "categories": [
+      "cs.CV"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.30911",
+    "tags": [
+      "🩺 医疗 LLM"
+    ],
+    "primary_tag": "🩺 医疗 LLM",
+    "medical_score": 4,
+    "tldr_zh": "针对随机划分高估废物分类器识别未见物品的问题，提出物体不相交评估，取得预训练更可靠、医疗漏检更低的结论。"
+  },
+  {
+    "id": "2611.32384",
+    "title": "Can AI Design a Better nnU-Net? A Hypothesis-Driven Architecture Discovery Loop from Failures to Design Rules",
+    "abstract": "Neural architecture search and LLM-driven evolution often reduce evaluation to a scalar fitness score, discarding failures that could explain why designs succeed or fail. We present a hypothesis-driven architecture discovery loop in which LLM agents diagnose structured error patterns, formulate falsifiable hypotheses, test counterfactual controls under a frozen nnU-Net pipeline, and distill validated mechanisms into executable trigger-to-action rules. Across eight search waves, the loop identifies two principles for 3D medical image segmentation. First, reallocating computation from high-resolution decoders to the mid-encoder preserves thin-anatomy boundaries while reducing cost. Second, support-confined region contrast addresses errors between nested anatomical compartments, with anatomy-dependent triggers selecting when the rule applies. These principles produce LeanNeXt (0.78 MACs and 0.92 training-step time relative to nnU-Net; +1.63 Dice points on four-fold KiTS23 cross-validation) and trigger-routed LeanNeXt+. The latter improves all 15 evaluated CT/MRI settings over nnU-Net and exceeds the 3.3 larger ResEnc-M on 12 of 15 benchmarks at 0.30 its parameter count. Relative to random sampling, one-shot LLM generation, and score-selected agent search, the loop shows how failure analysis can yield reusable design rules across modalities.",
+    "authors": [
+      "Songtao Jiang",
+      "Yuan Wang",
+      "Fucheng Niu",
+      "Hualiang Wang",
+      "Jian Wu",
+      "Zuozhu Liu"
+    ],
+    "published": "2026-11-24",
+    "categories": [
+      "cs.AI",
+      "cs.LG"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.32384",
+    "tags": [
+      "📊 评测 / Benchmark",
+      "🤖 Agent"
+    ],
+    "primary_tag": "📊 评测 / Benchmark",
+    "medical_score": 2,
+    "tldr_zh": "针对架构搜索丢弃失败信息，提出假设驱动失败诊断与规则提炼循环，取得可复用规则与更省算力模型，并在15个影像设置优于基线"
+  },
+  {
+    "id": "2611.31849",
+    "title": "JECT: Addressing the Context Shortcut in Joint-Embedding Predictive Learning for Chest CT",
+    "abstract": "Joint-embedding predictive architectures learn by predicting features of masked regions from visible context. In chest computed tomography, the findings that decide a diagnosis, such as a small nodule, are often not predictable from the surrounding anatomy. A hidden finding is then best predicted toward normal anatomy, and the prediction loss stops rewarding the encoder for representing it. We call this the context shortcut. Conditioning the predictor on the radiology report repairs the prediction, but in our setup the encoder gains little over image-only pretraining: the report supplies what the encoder never had to learn. JECT therefore gives the report two roles: a condition for the predictor and, through masked section-text prediction, a target for the encoder, which must predict the report's anatomical sections from the unmasked scan. A hierarchical three-dimensional encoder that predicts at every stage keeps this clinical content at every scale. In ablations, the text target improves classification and localization, while conditioning adds little to the encoder. Trained from scratch on 173k volumes, the recipe reaches the level of current computed tomography foundation models in classification, retrieval and nodule malignancy, and of task-specific models in lung-cancer risk prediction after fine-tuning. Conditioning still matters: its predictor can be reused, with no extra training, to show where a report sentence acts, changing most at the finding the sentence describes. Code and pretrained weights are available.",
+    "authors": [
+      "Hanbin Ko",
+      "Hong-Jun Choi",
+      "Jihun Kim",
+      "Young-Gon Kim",
+      "Dongheon Lee",
+      "Chang Min Park"
+    ],
+    "published": "2026-11-24",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.31849",
+    "tags": [
+      "🖼️ 多模态医疗"
+    ],
+    "primary_tag": "🖼️ 多模态医疗",
+    "medical_score": 3,
+    "tldr_zh": "针对胸部CT联合嵌入预测的上下文捷径，提出以报告为条件与文本目标的分层三维JEPA，取得分类定位提升并达基础模型水平。"
+  },
+  {
+    "id": "2611.31622",
+    "title": "Internal inconsistencies and unresolved experimental evidence in a quantum neurosecurity framework",
+    "abstract": "This article presents a technical and theoretical assessment of the Quantum-Entangled Neuro-Symbolic Swarm Federation (QENSSF), a framework intended for privacy-preserving, quantum-secure, AI-powered, multimodal healthcare data analysis, introduced by Ben Othman and Ali (2025). They claim QENSSF is a first-in-class framework with provable privacy and security guarantees, support these with theorems and proofs, report an experimental evaluation on IBM's quantum Eagle processor, report a real-world quantum key distribution (QKD) test, and claim use of real-world multimodal datasets (ADNI, UK Biobank, and MIMIC-IV). Our examination of quantitative support for these claims identified various concerns. Most importantly, the security criterion of a central guarantee (Theorem 1) cannot be satisfied given the risk formulation and relevant constraints, which, along with calculation errors in the proof, directly undermines the claim of provable security. Furthermore, insufficient reporting of biomedical datasets and unresolved discrepancies in the hardware evaluation limit verification of the experimental claims and overall reproducibility. QENSSF identifies a real need: ensuring privacy and security of healthcare data while patients benefit from AI-powered analysis. This need is particularly pressing for sensitive neural data, including the neuroimaging data available through sources such as ADNI. Privacy concerns also extend to wearable EEG data, for which reidentification risks can persist despite deidentification. However, QENSSF's foundational inconsistencies need resolution before it could be considered in the neurosecurity domain.",
+    "authors": [
+      "S. Grigorovich",
+      "M. Bairachnaya",
+      "E. Daroczi",
+      "J. Marshall",
+      "B. Giros"
+    ],
+    "published": "2026-11-23",
+    "categories": [
+      "cs.CR"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.31622",
+    "tags": [
+      "🖼️ 多模态医疗"
+    ],
+    "primary_tag": "🖼️ 多模态医疗",
+    "medical_score": 3,
+    "tldr_zh": "针对量子神经安全框架隐私安全宣称，开展理论与实验证据审计，发现定理矛盾与证据不足，削弱其可证安全与可复现性。"
+  },
+  {
+    "id": "2611.31569",
+    "title": "CLAIMGATE: Cautious On-Device Checking of Spoken Legal and Clinical Claims",
+    "abstract": "In law and medicine, a misstated rule can shape a decision before anyone has time to check it. Checking such claims in real time helps only if the checker keeps pace with conversation, keeps sensitive audio on the device, and stays silent rather than mislead. We present CLAIMGATE, an on- device assistant that listens to a conversation, detects checkable claims, retrieves the relevant official rule, and labels each claim as supported, contradicted or not covered, with a citation. CLAIMGATE is designed to fail towards silence: its 4-bit 7B- parameter language model may cite only retrieved rules, and the verdict is derived in code from the claim and rule the model quotes. We evaluate it on traffic stops and medical visits using real official rule text (5,742 Florida and Texas statute subsections; CDC, FDA and MedlinePlus guidance), real transcripts, live speech and author-written gold-labelled claims. On 141 held-out traffic-stop claims, CLAIMGATE reaches 80.1% accuracy and cuts serious errors (a true claim called false, or the reverse) from 20 to 5 compared with the same model without retrieval; deriving the verdict in code alone reduces them from 13 to 5 at no cost to accuracy. The claim gate passes 95.7% of held-out claims and rejects all 30 everyday sentences, and feedback arrives a median 1.86 s after a speech window closes on an 8 GB consumer GPU. On 148 allergy claims, with only the claim gate to rebuild, CLAIMGATE reaches 87.8% accuracy with 5 serious errors, against 20 without retrieval.",
+    "authors": [
+      "Peter Forcha",
+      "Harshitha Kaje Kusumadhara",
+      "Audrey Moguem Souop",
+      "Shalom Iboh"
+    ],
+    "published": "2026-11-23",
+    "categories": [
+      "cs.CL"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.31569",
+    "tags": [
+      "🩺 医疗 LLM"
+    ],
+    "primary_tag": "🩺 医疗 LLM",
+    "medical_score": 3,
+    "tldr_zh": "针对法律医疗口头声明实时核查，提出端侧检索与代码判定，取得准确率约80%/88%、严重错误降至5。"
+  },
+  {
+    "id": "2611.31536",
+    "title": "Tempering and few-shot calibration of pathology foundation models improve digital biomarker reproducibility across slide scanners",
+    "abstract": "Pathology foundation models underpin a growing number of histology-based cancer biomarkers, but sensitivity to slide scanner-specific image signatures degrades cross-center reliability and reproducibility. We developed a foundation model fine-tuning method that improved consistency in head-and-neck cancer human papillomavirus (HPV) prediction, colorectal cancer microsatellite instability (MSI) identification, prostate cancer grading and breast cancer phenotyping. This tempering method decreased cross-scanner prediction differences by 67.5% for HPV (95% CI 59.0-73.9%), 69.3% for MSI (95% CI 51.9-76.5%) and 63.4%-81.2% for breast signatures. Cross-scanner prostate grade agreement rose from 42.5% to 92.7%. Under full scanner-HPV confounding during training, AUROC fell from 0.80 to 0.68 with original model features but only from 0.86 to 0.84 with tempering. Unlike post hoc feature calibration, tempering used only public data yet matched or exceeded on-site calibration. These findings support tempering to reduce scanner dependence of pathology foundation models.",
+    "authors": [
+      "Frank T Wen",
+      "Kyler Rosen",
+      "Siddhi Ramesh",
+      "Michael Koo",
+      "Sara Kochanny",
+      "Sasha Jain-Liu"
+    ],
+    "published": "2026-11-23",
+    "categories": [
+      "q-bio.QM",
+      "cs.AI",
+      "cs.CV"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.31536",
+    "tags": [
+      "🩺 医疗 LLM"
+    ],
+    "primary_tag": "🩺 医疗 LLM",
+    "medical_score": 3,
+    "tldr_zh": "针对病理基础模型跨扫描仪预测不稳定，提出tempering微调与少样本校准，降低预测差异并提升生物标志物可重复性。"
+  },
+  {
+    "id": "2611.31037",
+    "title": "SurgeCount: A Protocol-Guided Composition Harness for Bimanual Surgical Sponge Counting",
+    "abstract": "We present SurgeCount, a system for auditable robotic surgical sponge counting that composes learned skills under a written procedural protocol. Retained sponges cause preventable harm, and surgical teams count every sponge before closure to reduce that risk. The robot repeatedly isolates one deformable sponge from a tangled pile and places it in the next numbered counting-tray slot, requiring handling of occluded grasp threads while preserving step order. We train one subtask-conditioned policy on eleven short skills and learn when each skill ends. At each learned boundary, a stateful vision-language model selects the next skill from an operator-authored specification of step order, visual verification, and recovery. This creates temporal commitment to each subtask and enables failures to be recovered by recomposing existing skills rather than using a dedicated recovery policy. We evaluate five methods across 100 real-robot trials using 20 matched layouts. SurgeCount fills 47 of 60 ordered slots and completes 12 of 20 procedures, compared with 27 of 60 and 3 of 20 for the strongest of four end-to-end policies trained on the same data. Replacing the detailed protocol prompt with a minimal prompt reduces performance to 29 of 60 slots and 5 of 20 completed procedures. These results show that long-horizon performance depends not only on visuomotor capacity, but also on how learned skills are committed, verified, and composed. This tabletop proof of concept motivates further evaluation of protocol-guided robotic sponge counting in clinically representative settings.",
+    "authors": [
+      "Sung Eun Kim",
+      "Xiaoman Zhang",
+      "Xucheng Wang",
+      "Pranav Rajpurkar"
+    ],
+    "published": "2026-11-23",
+    "categories": [
+      "cs.RO"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.31037",
+    "tags": [
+      "🖼️ 多模态医疗"
+    ],
+    "primary_tag": "🖼️ 多模态医疗",
+    "medical_score": 3,
+    "tldr_zh": "针对机器人手术纱布计数的长时序与遮挡难题，提出协议引导技能组合框架，真机完成12/20流程并优于端到端。"
+  },
+  {
+    "id": "2611.30601",
+    "title": "Learning Multimodal Representations from Partially Paired, Small-Scale Data",
+    "abstract": "Modeling multimodal data from partially paired samples is critical for advancing domains like biomedicine, where vast unimodal datasets and foundation models exist but paired data remains scarce. Existing fusion methods rely on large-scale paired datasets, limiting their use in scenarios with incomplete pairing. We introduce CAMEO, an adversarial learning-based modality fusion framework that integrates modalities from small, partially paired datasets. Combining any pre-trained unimodal encoder with a cross-modal latent alignment mechanism, CAMEO learns shared representations requiring only minimal paired samples. Evaluated on computational pathology tasks such as niche classification and cell type composition prediction, CAMEO achieves superior data efficiency, outperforming contrastive approaches like CLIP in low paired-data regimes, and highlighting the benefits of adversarial alignment when paired annotations are scarce. To facilitate further research, we additionally release a fully annotated HuggingFace dataset comprising three organs and paired image and gene expression modalities. By extending fusion methods to address limited pairing and small-scale datasets, we provide a framework that advances multimodal learning and broadens its applicability to real-world biomedical problems.",
+    "authors": [
+      "Merel Kuijs",
+      "Till Richter",
+      "Rushin H. Gindra",
+      "Korbinian Traeuble",
+      "Christian Matek",
+      "Rebeka Luknárová"
+    ],
+    "published": "2026-11-23",
+    "categories": [
+      "cs.AI",
+      "q-bio.GN"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.30601",
+    "tags": [
+      "🖼️ 多模态医疗"
+    ],
+    "primary_tag": "🖼️ 多模态医疗",
+    "medical_score": 3,
+    "tldr_zh": "针对部分配对、小规模多模态数据，提出CAMEO对抗式跨模态融合框架，取得计算病理任务中低配对数据效率优势。"
+  },
+  {
+    "id": "2611.30582",
+    "title": "Foundation Model and Radiomics Distance Scores for Post-Hoc Segmentation Failure Detection",
+    "abstract": "Medical image segmentation models can fail silently when clinical data differs from training data. Deployed models rarely ship with quality control, and are often black boxes. Prior methods that work in this post-hoc failure detection setting still need a separate regression or segmentation model, registration, or access to model internals. We instead propose two failure scores based on the Mahalanobis distance to a labeled reference set. The first uses radiomic shape features of the predicted mask. The second uses frozen foundation model (FM) features, made mask-aware by overlaying the mask on the image, encoding it with a frozen DINOv3, and pooling patch features with more weight on the mask region. We test on multi-site prostate and hippocampus MRI under imaging-protocol and population shift. Ranking cases by predicted failure risk within each site, both scores are competitive with the registration-based (Atlas-RCA) and ensemble-based (pairwise Dice) baselines, without registration that can fail silently or access to individual predictions. Our results show that pooling all test cases into one ranking, as prior work does, rewards ordering sites by difficulty, so a detector can rank sites well, miss failures within them, and still look strong. Within-site evaluation measures true per-case failure. The two evaluation schemes reward different behavior, so we recommend reporting both. The code is available at https://github.com/imigraz/fm-radiomics-failure-detection.",
+    "authors": [
+      "Simon Johannes Joham",
+      "Gianluca Guglielmo",
+      "Mateusz Kozinski",
+      "Martin Urschler"
+    ],
+    "published": "2026-11-23",
+    "categories": [
+      "cs.CV"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.30582",
+    "tags": [
+      "🩺 医疗 LLM"
+    ],
+    "primary_tag": "🩺 医疗 LLM",
+    "medical_score": 3,
+    "tldr_zh": "针对分割模型在分布偏移下静默失败，提出影像组学与基础模型马氏距离失败评分，取得站内检测与基线相当且无需注册。"
+  },
+  {
+    "id": "2611.32631",
+    "title": "Generating Schema-Aligned Synthetic Dialogues and Measuring Their Diversity",
+    "abstract": "Training or evaluating a model that turns a conversation into a structured record requires paired data, meaning a transcript together with the exact record it should be converted into. Such pairs are expensive to annotate, and in sensitive domains they are also difficult to obtain at all. We therefore build them in the opposite order by sampling a schema-valid record first, then writing a dialogue from it, and optionally synthesizing speech from the dialogue, so the label exists before the text and we need no annotation step. Naively prompting a language model for such dialogues yields small variations of a single conversation, so we add a sampled variation configuration, personas, and a topic plan that orders the fields of the record as explicit mechanisms for variation. We measure the variation that reaches the output through embedding space, where the embedding variance spreads over about two and a half times as many independent directions with our full configuration compared to without (participation ratio 23.3 against 9.2). Two corpora of medical dialogue give values of the same order, with sample size, text length and language being additional factors there. We also show the positive effect of our method in a downstream test, where an 8B extraction model reaches 64.8% field accuracy when fine-tuned on dialogues from our method, against 57.5% from naive generation. We release the generation library and the generated corpus of German clinical dialogues with aligned records.",
+    "authors": [
+      "Konrad Stolte",
+      "Toni Fetzer"
+    ],
+    "published": "2026-11-24",
+    "categories": [
+      "cs.CL"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.32631",
+    "tags": [
+      "🩺 医疗 LLM"
+    ],
+    "primary_tag": "🩺 医疗 LLM",
+    "medical_score": 2,
+    "tldr_zh": "针对对话转记录配对数据昂贵，提出先采样合规记录并用变体、人设与主题计划生成对话，嵌入多样性提升且抽取准确率64.8%"
+  },
+  {
+    "id": "2611.31791",
+    "title": "SwarmLeak: Does Coordination Improve Privacy Attacks on LLM Agents?",
+    "abstract": "LLM agents increasingly collaborate in group chats while holding tool access to confidential records, which makes the shared chat an attack surface. It remains unclear whether several colluding attackers extract such information more effectively than one. We introduce SwarmLeak, a red-teaming dataset of 24 synthetic group-chat scenarios across healthcare, law, finance, and software engineering, where attackers pose as colleagues to make a victim agent post protected fields despite an explicit confidentiality policy. With GLM 5.2 attacking five victim models through seven conversational strategies, we compare one attacker with a swarm of four sharing a private channel, matching scenarios, strategies, and a 200,000-token budget that also covers swarm coordination. Swarms show no advantage: a single attacker matches or exceeds them on every victim, and the share of runs leaking any field differs between conditions by at most 14.3 percentage points, whereas changing the victim shifts it from 0% to 99.4%. On the two most vulnerable models, nearly every run leaks under both conditions, but single attackers expose more of the record at first disclosure (85.4% vs. 68.1% of protected fields on Nemotron 3.5 Lightning). Four of the five victims leaked despite the policy. GLM 5.2 retrieved protected data in 64.3% of individual-attack runs and leaked in 0.6%: retrieval does not imply disclosure, but in high-stakes settings even one leaked field can identify a patient or client. At equal budgets, a larger red team is not automatically a stronger one; the victim model matters far more.",
+    "authors": [
+      "Asma Farajidizaji",
+      "Vyas Raina",
+      "Vatsal Raina",
+      "Ivaxi Sheth"
+    ],
+    "published": "2026-11-24",
+    "categories": [
+      "cs.CR",
+      "cs.CL"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.31791",
+    "tags": [
+      "🤖 Agent"
+    ],
+    "primary_tag": "🤖 Agent",
+    "medical_score": 2,
+    "tldr_zh": "针对LLM代理群聊协作隐私攻击，提出SwarmLeak数据集，发现等预算下多攻击者无优势，受害者模型更关键。"
+  },
+  {
+    "id": "2611.31787",
+    "title": "SciFig2Data: A Workflow for Recovering Structured Data from Scientific Figures",
+    "abstract": "Scientific measurements reported in scholarly articles are often embedded in compound figures rather than available as machine-readable data. Recovering these measurements at literature scale requires an integrated workflow for figure localization, panel decomposition, chart identification, numerical reconstruction, and experimental context association. We present \\textit{SciFig2Data}, an automated, high-throughput workflow for harvesting structured experimental data from scientific PDF repositories. The system integrates multi-scale document element detection, adaptive compound figure decomposition, two-stage OCR-based semantic filtering, Swin-based chart classification, and instruction-guided multimodal large language model (MLLM) reconstruction. It further incorporates directory-level batch execution, caching, and structured logging to support large-scale processing. We demonstrate the workflow on two biomedical literature corpora comprising 605 toxicology and pharmacology articles and 551 lipid nanoparticle (LNP) articles. The pipeline successfully reconstructed 468 and 242 tabular outputs from the respective corpora, illustrating its practical applicability to literature-scale scientific data harvesting. By associating reconstructed measurements with caption-derived experimental metadata, SciFig2Data provides a workflow for transforming graphical evidence in scholarly publications into structured, context-enriched data records for downstream AI4Science applications.",
+    "authors": [
+      "Xinhe Wu",
+      "Yicheng Ye",
+      "Yadong Jin"
+    ],
+    "published": "2026-11-24",
+    "categories": [
+      "cs.AI"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.31787",
+    "tags": [
+      "🖼️ 多模态医疗"
+    ],
+    "primary_tag": "🖼️ 多模态医疗",
+    "medical_score": 2,
+    "tldr_zh": "针对生物医学文献复合图难转机器可读数据，提出自动工作流，重建数百表格并关联实验上下文。"
+  },
+  {
+    "id": "2611.31686",
+    "title": "Right Destination, Wrong Journey: Synthetic Counseling Dialogues Miss Human Interactional Dynamics",
+    "abstract": "LLM-generated counseling dialogues are increasingly used for training and evaluating mental-health systems, yet existing evaluations focus largely on response quality and final outcomes rather than how support unfolds over time. We conduct a trajectory-centered evaluation of process fidelity across ten human, reconstructed, and synthetic counseling datasets. Our results show that synthetic dialogues often reach plausible endpoints but differ from human support in recovery dynamics and turn-by-turn responsiveness. While generation design can shift global properties such as recovery timing and trajectory structure, contingent patient--counselor responsiveness remains consistently lower in fidelity across models and generation paradigms. Our experiments on controlled synthetic datasets show that targeted generation interventions can narrow the gap with real data on several trajectory-level measures, but do not fully recover interactional fidelity, with turn-level responsiveness remaining limited. We release three controlled synthetic datasets comprising 2,050 dialogues, together with annotations and the evaluation framework.",
+    "authors": [
+      "Ziwei Gong",
+      "Yuchen Huang",
+      "Nicholas Deas",
+      "Melanie Subbiah",
+      "Julia Hirschberg"
+    ],
+    "published": "2026-11-23",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.31686",
+    "tags": [
+      "🩺 医疗 LLM"
+    ],
+    "primary_tag": "🩺 医疗 LLM",
+    "medical_score": 2,
+    "tldr_zh": "针对合成咨询对话评估忽略互动动态，开展轨迹中心评估与受控实验，发现终点合理但逐轮响应保真不足。"
+  },
+  {
+    "id": "2611.31062",
+    "title": "X-BQSR: Holistic Acceleration of Base Quality Recalibration for Scalable Genomic Analysis",
+    "abstract": "With the continued decline in sequencing costs, genomics-based precision medicine is gaining increasing importance. The Genome Analysis Toolkit (GATK) is the standard framework for converting raw genomic data into actionable variants, but one of its most expensive steps is base quality score recalibration (BQSR), which corrects systematic sequencing errors. Despite significant work on accelerating other parts of the variant calling pipeline, BQSR has not been systematically explored on GPUs. In this work, we analyze BQSR to identify computational and I/O bottlenecks and show that simply offloading key stages to an accelerator is insufficient to achieve overall gains. We then present X-BQSR, a holistic redesign of the entire BQSR pipeline, including I/O, compression, and kernel execution, to better leverage GPU parallelism. We implement X-BQSR using portable SYCL kernels for NVIDIA, AMD, and Intel GPUs, along with native CUDA and HIP backends for comparison, and we evaluate its performance against previous FPGA work. Our evaluation shows up to 141.7x acceleration compared to standard GATK and 8.7x acceleration compared to a proprietary GPU-accelerated solution.",
+    "authors": [
+      "Eugenio Marinelli",
+      "Ivan Donchev Kabadzhov",
+      "Raja Appuswamy"
+    ],
+    "published": "2026-11-23",
+    "categories": [
+      "cs.DC"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.31062",
+    "tags": [
+      "🩺 医疗 LLM"
+    ],
+    "primary_tag": "🩺 医疗 LLM",
+    "medical_score": 2,
+    "tldr_zh": "针对GATK BQSR计算与I/O瓶颈，提出X-BQSR重设计GPU流程，取得较标准GATK最高141.7倍加速。"
+  },
+  {
+    "id": "2611.30507",
+    "title": "When Does Continual Pre-Training Help? An Empirical Study of Decoupled Knowledge and Generation Trajectories in Clinical LLMs",
+    "abstract": "Continual pre-training (\\textit{CPT}) is a standard route for domain adaptation, yet existing studies typically track pre-training loss or multiple-choice question answering (\\textit{MCQA}) accuracy alone, offering only a narrow view of how adaptation unfolds. We jointly track factual knowledge via \\textit{MCQA} and open-ended behavior via pairwise preference rankings across $18$ checkpoints for each of eight instruction-tuned \\textit{Qwen} models ($0.5B$ to $8B$), adapted to German medicine with \\textit{CPT} and \\textit{SLERP} merging. The two axes converge at consistently different rates, with preference rankings reaching $90\\%$ of their total gain after a median of $1.7B$ tokens versus $3.5B$ for \\textit{MCQA}. A judge-free token-distribution measure reaches this threshold at $1.9B$ tokens. Per-aspect scores indicate that these early preference gains largely reflect surface alignment, meaning models can sound domain-appropriate before their factual knowledge catches up. Larger adapted models close more of the gap to unadapted next-tier generalists, whereas preference gain per FLOP falls by about an order of magnitude across our size range. We therefore argue that judge-based preference scores, which can plateau while \\textit{MCQA} knowledge is still improving, should not be used alone to infer adaptation convergence or domain readiness.",
+    "authors": [
+      "Niclas Doll",
+      "Jasper Schulze Buschhoff",
+      "Shalaka Satheesh",
+      "Héctor Allende-Cid",
+      "Katrin Klug"
+    ],
+    "published": "2026-11-23",
+    "categories": [
+      "cs.CL"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.30507",
+    "tags": [
+      "🩺 医疗 LLM"
+    ],
+    "primary_tag": "🩺 医疗 LLM",
+    "medical_score": 2,
+    "tldr_zh": "针对临床大模型持续预训练评估片面问题，提出联合追踪问答与偏好排序，取得偏好先于事实知识收敛且不宜单独判断适应完成的结果"
+  },
+  {
+    "id": "2611.30411",
+    "title": "Assumptions, Modeling and Risks: Applying ICH M15 to Statistical Modeling",
+    "abstract": "In many instances in phase II and III clinical trials, critical assumptions underlying statistical analyses require discussion with regulators and other stakeholders. Such discussions benefit from a guiding process to promote consistency and clarity, but no widely and consistently applied framework currently exists. In January 2026, the International Council for Harmonisation released the ICH M15 Guideline on General Principles for Model-Informed Drug Development, which proposes a systematic framework for evaluating mechanistic models to support regulatory and development decisions. Although it focuses on mechanistic modeling, its structured assessment of model risks and benefits may be equally applicable to other approaches typically requiring a thorough appraisal of methodology and alignment among stakeholders, such as external data use and parametric longitudinal data analysis, and novel methodological approaches more generally. We illustrate and discuss how systematic risk-benefit evaluation of statistical models under the ICH M15 framework could work and propose its use to support acceptance of context-specific modeling strategies and to enhance decision-making transparency.",
+    "authors": [
+      "Tobia Mielke",
+      "Mouna Akacha",
+      "Christian Stock",
+      "Marc Vandemeulebroecke",
+      "Cornelia Ursula Kunz",
+      "Fei Chen"
+    ],
+    "published": "2026-11-23",
+    "categories": [
+      "stat.ME"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.30411",
+    "tags": [
+      "🩺 医疗 LLM"
+    ],
+    "primary_tag": "🩺 医疗 LLM",
+    "medical_score": 2,
+    "tldr_zh": ""
+  },
+  {
+    "id": "2611.30360",
+    "title": "ArguShield: Enforcing Minimum-Necessary Disclosure in Tool-Calling LLM Agents",
+    "abstract": "Large language model agents increasingly use third-party tools to complete user tasks. Even without malicious intent, they may fill broad or weakly constrained fields with private information that is unnecessary or inappropriate for the receiving tool. Such calls can satisfy the tool schema and complete the task, yet still violate minimum-necessary disclosure. We introduce ArguShield, a mediation layer that intercepts proposed tool calls before execution. It evaluates each candidate value using three signals: Value Provenance, Task Relevance, and Disclosure Boundary. ArguShield releases justified values, defers values that need user confirmation, and withholds those outside the permitted scope. We evaluate ArguShield with four tool-calling models on ArgPrivBench, a benchmark of 120 tasks across Travel, Shopping, and Healthcare. Unprotected agents frequently over-disclose private information despite high task success. Prompt-only protection reduces unauthorized disclosure but substantially lowers task success. ArguShield reduces unauthorized silent release to 9% on Standard tasks and 6% on High-risk tasks while preserving recoverable task success under simulated user confirmation.",
+    "authors": [
+      "Ying Fu",
+      "Yulong Fu"
+    ],
+    "published": "2026-11-23",
+    "categories": [
+      "cs.CR"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.30360",
+    "tags": [
+      "📊 评测 / Benchmark",
+      "🤖 Agent"
+    ],
+    "primary_tag": "📊 评测 / Benchmark",
+    "medical_score": 1
+  },
+  {
+    "id": "2611.32394",
+    "title": "Adaptive and Detection-Aware Super-Resolution for Small Object Detection",
+    "abstract": "Image super-resolution aims to reconstruct a high-resolution image from a low-resolution input and is relevant for surveillance, satellite imagery, medical imaging, and object detection. This paper investigates SRCNN-based single-image super-resolution for a scale factor of x4, starting from a classical baseline and progressively introducing residual learning, Charbonnier loss, and adaptive loss functions. The proposed approach includes a three-region adaptive loss, where image areas are divided into smooth, texture, and edge regions using gradient information. The models are evaluated using PSNR, SSIM, LPIPS, and EdgeMAE in order to measure both reconstruction quality and structural detail preservation. In addition to reconstruction evaluation, the paper analyzes the impact of super-resolution on object detection. A YOLOv8 detector is applied to images processed through bicubic interpolation and SRCNN-based variants, using images from the COCO validation dataset. The results show that improved reconstruction quality does not always lead to better detection performance. However, for small objects, a detection-aware variant combined with residual scaling improves the F1 score compared to the bicubic baseline. These results highlight the importance of task-aware evaluation when super-resolution is used in computer vision pipelines.",
+    "authors": [
+      "Cezica-Elena Luncanu",
+      "Stelian Spînu"
+    ],
+    "published": "2026-11-24",
+    "categories": [
+      "cs.CV"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.32394",
+    "tags": [
+      "🖼️ 多模态医疗"
+    ],
+    "primary_tag": "🖼️ 多模态医疗",
+    "medical_score": 1
+  },
+  {
+    "id": "2611.32375",
+    "title": "DBFM: Dual-Band Flow Matching for ECG Super-Resolution",
+    "abstract": "Long-term ECG monitoring is increasingly supported by wearable and portable devices, where limited power and transmission capacity motivate acquisition at lower sampling rates. ECG super-resolution (SR) aims to reconstruct high-sampling-rate signals from low-sampling-rate recordings for clinical analysis. A recent diffusion-based approach, DiSR-ECG, has demonstrated powerful reconstruction performance, particularly in cross-dataset evaluation. However, its iterative sampling during inference incurs high computational cost when processing large volumes of long-term ECG data. To reduce this cost while maintaining reconstruction accuracy, we propose Dual-Band Flow Matching (DBFM), a generative framework for ECG SR. DBFM decomposes ECG signals into low- and high-frequency components and separately learns their source-to-target transport using conditional flow matching. This dual-band formulation enables frequency-specific reconstruction, while one-step inference substantially reduces computational complexity. Experimental results show that DBFM achieves performance comparable to or better than DiSR-ECG while reducing inference FLOPs by approximately 98.7\\%. These results demonstrate that DBFM enables computationally efficient ECG SR without compromising reconstruction quality.",
+    "authors": [
+      "Fan-Yi Hsu",
+      "Kuan-Chen Wang",
+      "I Chiu",
+      "Kai-Chun Liu",
+      "Ping-Cheng Yeh",
+      "Yu Tsao"
+    ],
+    "published": "2026-11-24",
+    "categories": [
+      "eess.SP"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.32375",
+    "tags": [
+      "🩺 医疗 LLM"
+    ],
+    "primary_tag": "🩺 医疗 LLM",
+    "medical_score": 1
+  },
+  {
+    "id": "2611.32360",
+    "title": "Characterizing Datasets to Anticipate Unsupervised Domain Adaptation Performance for Radiographic Pneumonia Detection",
+    "abstract": "Deep learning models for pneumonia detection from chest radiographs exhibit degraded accuracy when applied across institutions, which motivates Unsupervised Domain Adaptation (UDA). We observe that UDA performance depends on the properties of both the source and target datasets, and that performance gains are asymmetric with respect to dataset pairs. We investigate which structural properties of chest X-ray datasets are the most important predictors of UDA performance, and whether they can be measured before adaptation is attempted. Five chest radiograph datasets were characterized by the class separability of their features, obtained from one forward pass of a frozen DenseNet-121 and summarized by the Silhouette Score, with the Fisher Ratio as a supporting measure. All twenty directed source-target pairs were adapted with a Domain-Adversarial Neural Network (DANN), while direct transfer without adaptation was also evaluated. Seven published transferability estimators were computed on the same representation for comparison. We found that adaptation performance depended on both endpoints in opposite directions. More separable target datasets attained higher AUC scores ($r=0.934$, $p=0.042$), whereas more separable sources produced lower AUC scores ($r=-0.922$, $p=0.017$). The signed difference in separability tracked the signed difference in AUC between the two directions of a pair ($r=-0.932$, $p=0.017$) and identified the better direction in 10 of 10 pairs ($p=0.001$). The proposed descriptor was comparable to the best published estimators on target evaluation. Source and target datasets play opposite structural roles in adaptation: higher class separability makes a dataset easier as a test set but not as a training source. This framework can guide dataset selection for adaptation in low-resource settings without running full experiments.",
+    "authors": [
+      "Iftakhar Hossain",
+      "Md. Imran Hasan",
+      "Salahuddin Ahmed",
+      "Eric D. McCollum",
+      "Abdullah H. Baqui",
+      "Taufiq Hasan"
+    ],
+    "published": "2026-11-24",
+    "categories": [
+      "eess.IV",
+      "cs.CV"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.32360",
+    "tags": [
+      "🩺 医疗 LLM"
+    ],
+    "primary_tag": "🩺 医疗 LLM",
+    "medical_score": 1
+  },
+  {
+    "id": "2611.32118",
+    "title": "Monte Carlo Tree Search for Classifier Chains",
+    "abstract": "Multi-label classification continues to be relevant to a variety of modern tasks. Among other challenges, modern data sets are increasingly large with respect to the number of labels, and these labels may be noisy or missing in the training sets. Label-wise scores and ranking-based metrics have been popular, but optimising exact multi-label evaluation (where a predicted set of labels should match the true set exactly) is particularly relevant for many domains, e.g., in medicine; alongside some measure of confidence. This requires an estimation of joint probability across labels (a model of label dependence; conditioned on each input instance). A family of methods known as probabilistic classifier chains provides such inference. However, these existing varieties either do not scale to a large number of labels or do so by approximating joint via marginal distributions in a way that compromises the estimation of uncertainty for exact match accuracy. We overcome this issue by proposing TSCC; leveraging a Monte Carlo Tree Search methodology to enhance chain inference via an efficient balance between the exploration of label space and the exploration of promising label-set predictions. Results are promising both in terms of predictive and computational performance.",
+    "authors": [
+      "Romain Poggi",
+      "Jesse Read"
+    ],
+    "published": "2026-11-24",
+    "categories": [
+      "cs.LG"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.32118",
+    "tags": [
+      "🩺 医疗 LLM"
+    ],
+    "primary_tag": "🩺 医疗 LLM",
+    "medical_score": 1
+  },
+  {
+    "id": "2611.31708",
+    "title": "PRETZEL: A Benchmark for Cyclic Peptide Structure Prediction",
+    "abstract": "Macrocyclic peptides are a growing therapeutic modality, and co-folding models are increasingly used to predict their structures. Yet published evaluations rely on small, loosely curated target sets that differ from paper to paper, so results are not comparable, and most report pose RMSD alone, without checking whether the predicted molecule is chemically correct. We introduce PRETZEL (Prediction of Ring-Enclosed Topology: Zero-shot Evaluation of cycLic peptides), a benchmark of 285 curated cyclic peptide-protein complexes spanning three cyclization chemistries, all post-dating the training cutoff of every model evaluated. PRETZEL has three components: PRETZEL-SET, an evaluation set annotated by cyclization chemistry and chemical novelty; PRETZEL-TWIST, a specification layer that compiles a single canonical macrocycle description into each engine's native input format and verifies the returned structure; and PRETZEL-SALT, an evaluation suite pairing standard pose metrics with validity checks for bond distances, bond angles, dihedrals, and ring closure. Using these, we evaluate AlphaFold3, Boltz-2, Protenix-v2, and HighFold3. Protenix-v2 achieves the best median RMSD at 9.05 A, with 19.3% of predictions under 2 A and 37.5% under 5 A. Accuracy varies by cyclization chemistry: models handle head-to-tail macrocycles relatively well but degrade on stapled targets. Chemical validity is weaker still: at most 8.1% of predictions have a fully valid set of inter-residue bonds, and no engine closes every macrocycle in more than 80.7% of its predictions, so pose accuracy alone is an insufficient criterion. These failures share a cause: co-folding models place macrocycles without representing them, treating cyclization and non-canonical chemistry as annotations layered onto a residue sequence rather than as first-class structure. PRETZEL is released with all inputs, predictions, and evaluation code.",
+    "authors": [
+      "Yongchan Hong",
+      "Zihang Fang",
+      "Mukta Ubale",
+      "Yan Liu",
+      "Xingyao Chen",
+      "Vsevolod Katritch"
+    ],
+    "published": "2026-11-23",
+    "categories": [
+      "cs.AI"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.31708",
+    "tags": [
+      "📊 评测 / Benchmark"
+    ],
+    "primary_tag": "📊 评测 / Benchmark",
+    "medical_score": 1
+  },
+  {
+    "id": "2611.31679",
+    "title": "Rethinking Document Indexing for LLM-based Analysis",
+    "abstract": "Documents such as clinical records, legal contracts, and scientific papers are increasingly analyzed with large language models (LLMs). The naïve approach of prompting the model with the full text for every question is slow, expensive, prone to hallucination on long inputs, and reuses no work across questions. Retrieval-augmented generation (RAG) systems build reusable state to address this, but they store it as embedded chunks: slicing text into fragments can lose the meaning that spans them, and the resulting index is tied to one embedding model, so it must be rebuilt whenever that model changes. Answering many questions over a large body of data without a full rescan, however, is not a new problem: it is the problem database indexes have been solving for decades, and we argue that this accumulated index design knowledge is waiting to be revisited for LLM access. As a concrete starting point, we propose Periplus, a hierarchical plain-text index inspired by the classic B+ tree. It arranges a document into pages running from general summaries at the root to specific ones at the leaves, so that each level guides the search into the next. But it departs from the B+ tree in three ways suited to LLM access: content lives at every level, the pages are plain text rather than attribute values, and navigation follows the relevance of a page summary to the question rather than a key comparison. The structure itself is discovered per document by the LLM rather than hand-designed in advance. In a preliminary evaluation on narrative and contract corpora, Periplus comes within 0.1--0.9 percentage points of the strongest baseline's accuracy while consuming 70--72\\% fewer total tokens. These early results are encouraging, and they offer only a glimpse of what index design can bring to LLM-based analysis.",
+    "authors": [
+      "Donna Pham",
+      "Zhongwei Xu",
+      "Siyuan Dong",
+      "Haotian Gong",
+      "Lin Ma"
+    ],
+    "published": "2026-11-23",
+    "categories": [
+      "cs.DB"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.31679",
+    "tags": [
+      "🔍 RAG"
+    ],
+    "primary_tag": "🔍 RAG",
+    "medical_score": 1
+  },
+  {
+    "id": "2611.31442",
+    "title": "Small Learned Projections for Semantic-Reversal-Aware Retrieval with Spectral Acceleration: A Four-Domain Empirical Study",
+    "abstract": "Dense-embedding retrievers can fail adversarially: when a query is answered by a document A and reversed by a near-copy B that differs from A by a small meaning-changing edit (a \"trap\"), raw cosine over E5-Large-v2 places B in the top-10 for 82-100% of queries at a pool of 5,000. We study two things. First, a small learned projection W: R^1024 -> R^d (d in {11, 32}), trained by a deterministic recipe on a declared set of cases, that suppresses the trap: for the declared cases, HN@10 = 0.0000 (no trap in the top-10) in all twelve (domain, pool-size) settings across four independent domains (legal, medical, patent, financial) and pools up to 100,000, while the correct paraphrase is retained for 93-99% of cases, under exact nearest-neighbour search. Second, a boundary-conditioned accelerator that serves the projection at that scale: an acceleration of spectral graph retrieval (SpectRAG) that replaces a dense eigendecomposition with a boundary-value solve, holding HN@10 = 0.0000 at n = 100,000 in every domain and retrieving the ~300-query suite in 0.6-1.1 s (~2-4 ms per query on average). Because the lens's output is the stored representation (a few floats per document), a hardened, specialised index per domain or tenant is ~90x smaller and dimension-proportionally faster than the full embedding, making many small declared indexes a practical alternative to one large vector store. The claim is scoped to the declared cases on the measured pools, with no probabilistic bound; the correct-answer rate drops for a reworded query against an unchanged corpus (about 0.79, trap suppression still holding). A projection transfers only partly to other domains, which we report in full. The recipe, lenses, trap sets and evaluation harness are released under AGPL-3.0; the accelerator's implementation is a reserved commercial component, and every HN number is reproducible under exact search.",
+    "authors": [
+      "Sayed Amir Karim"
+    ],
+    "published": "2026-11-23",
+    "categories": [
+      "cs.LG",
+      "cs.IR"
+    ],
+    "source": "arXiv + HF 🔥",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.31442",
+    "tags": [
+      "🩺 医疗 LLM"
+    ],
+    "primary_tag": "🩺 医疗 LLM",
+    "medical_score": 1
+  }
+]
