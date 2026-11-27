@@ -1,0 +1,402 @@
+[
+  {
+    "id": "2611.34575",
+    "title": "Sage-Med: Scaling Medical Multimodal Intelligence",
+    "abstract": "Establishing effective scaling laws for medical multimodal large language models (MLLMs) remains a persistent and fundamental challenge. Our systematic evaluation shows that existing medical MLLMs tend to underperform frontier general-purpose MLLMs across a range of medical tasks, while scaling model size primarily improves text capabilities rather than multimodal perception, and enabling reasoning modes fails to close this visual gap. To investigate how medical multimodal intelligence scales in practice, we introduce Sage-Med-Preview, a 35B-parameter medical multimodal model with 3B activated parameters, built by combining stage-specific curation over 322.7 million candidate records with a progressive training curriculum spanning medical pretraining, staged supervised fine-tuning, and adaptive reinforcement learning. Across this curriculum, progressive supervised refinement and adaptive reinforcement learning yield consistent stage-wise gains, substantially advancing both specialized visual understanding and medical language capabilities. Evaluated against 77 competing models across 238 clinical tasks spanning 61 public and 13 private multi-center benchmarks in more than 40 modalities, Sage-Med-Preview achieves an average score of 58.26% on the 31 public multimodal benchmarks. It outperforms the state-of-the-art open-source medical model Hulu-Med-235B-A22B at 50.99% and the general scientific model Intern-S2-Preview at 52.24%, and approaches the advanced proprietary model GPT-6.2-Sol across multiple tasks such as comprehensive multimodal understanding, report generation, and visual grounding. Although substantial challenges remain in complex medical reasoning and multi-step clinical workflows, this report provides empirical evidence, actionable data and training recipes, and a rigorous benchmark toward scalable clinical multimodal intelligence.",
+    "authors": [
+      "Sage-Med Team",
+      " :",
+      "Ming Hu",
+      "Cheng Tang",
+      "Wei Li",
+      "Rongbin Li"
+    ],
+    "published": "2026-11-25",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "source": "arXiv + HF 🔥",
+    "upvotes": 89,
+    "url": "https://arxiv.org/abs/2611.34575",
+    "tags": [
+      "📊 评测 / Benchmark",
+      "🖼️ 多模态医疗"
+    ],
+    "primary_tag": "📊 评测 / Benchmark",
+    "medical_score": 13,
+    "tldr_zh": "针对医学多模态视觉扩展不足，提出Sage-Med数据课程与强化训练，取得多基准领先并接近专有模型。"
+  },
+  {
+    "id": "2611.34024",
+    "title": "JHealthBench-L: Clinician-Reviewed Localization of HealthBench for Rubric-Based Medical LLM Evaluation in Japan",
+    "abstract": "Rubric-based benchmarks such as HealthBench evaluate large language models (LLMs) on open-ended health consultations using case-specific physician criteria, many of which presuppose the healthcare institutions, medications, and care pathways of their source region. Under machine translation alone, these regional assumptions remain in the rubric, leaving responses appropriate in Japan uncredited or falsely penalized under foreign clinical rules. To adapt established clinical evaluation perspectives to Japan without authoring rubrics from scratch, we construct JHealthBench-L (79 patient-facing consultations, 1,022 criteria) through source-cited LLM drafting, single-specialist selection and revision, independent dual-physician review, and meta-review. Specialists rewrote only 4.4% of criteria from scratch, and independent reviewers approved 93.6% of Stage-2 criteria without issue. Comparing JHealthBench-L with a machine-translated baseline across 18 LLMs reveals that translation-only evaluation preserves coarse model rankings ($τ= 0.817$, mean shift +0.027) yet flips verdicts on 17.7% of modified criteria (vs. 7.3% re-grading noise) and reduces false penalties on Japan-adapted negative criteria by 7.1 percentage points, masking item-level clinical mismeasurement behind stable leaderboards. Axis-level and paired analyses further show that context awareness and Japan-specific clinical criteria remain primary bottlenecks, whereas Japanese continual pretraining and reasoning post-training substantially improve locally grounded performance. Datasets, physician revision logs, and evaluation code are available at https://github.com/horshohei/JHealthBench-L.",
+    "authors": [
+      "Shohei Hisada",
+      "Keisuke Orimo",
+      "Kenji Igarashi",
+      "Kota Sato",
+      "Masahiro Kazama",
+      "Mitsuhisa Ota"
+    ],
+    "published": "2026-11-25",
+    "categories": [
+      "cs.CL"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.34024",
+    "tags": [
+      "📊 评测 / Benchmark",
+      "📚 综述 / Survey"
+    ],
+    "primary_tag": "📊 评测 / Benchmark",
+    "medical_score": 12,
+    "tldr_zh": "针对机译医疗评分基准仍含区域假设致日本评估误判，提出医生评审本地化基准，取得减少误罚并揭示本地化瓶颈。"
+  },
+  {
+    "id": "2611.34247",
+    "title": "Did the Model Forecast It, or Already Know It? Evaluating Large Language Models for Novel Drug-Target Prioritisation with a Temporal Knowledge-Graph Oracle",
+    "abstract": "AI systems increasingly help decide which drug targets enter costly clinical trials. We recast each target-disease hypothesis as a dated event, the pair's first clinical trial. This lets us test whether a language model can forecast such events after its training cutoff, rather than recall events before it. We rebuild a dated biomedical knowledge graph as it stood at the end of each year from 2020 up to its newest version. We then ask six open language models, with and without this graph, which targets will enter a first trial for a disease the next year. Without retrieval, the models rank about as well as trial history, a count of each target's past trials in the same therapeutic area, also after their training cutoffs. Evidence dated before the decision adds at most a small gain, before or after the models' training cutoffs. The newest graph raises five of six models clearly above that baseline, but its paths usually include the answer: the pair's own trial, dated after the decision. Evaluations of target prioritisation should date both features and labels, with evidence from before the decision and outcomes after it.",
+    "authors": [
+      "Pui Chung Siu",
+      "Yuan Liang",
+      "Claudia Cabrera",
+      "Mani Mudaliar",
+      "Arkaitz Zubiaga"
+    ],
+    "published": "2026-11-25",
+    "categories": [
+      "cs.AI",
+      "q-bio.QM"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.34247",
+    "tags": [
+      "🩺 医疗 LLM"
+    ],
+    "primary_tag": "🩺 医疗 LLM",
+    "medical_score": 8,
+    "tldr_zh": "针对大模型靶点预测易混入未来知识，提出带日期事件与逐年图谱的时间截断评估，取得图谱提升多含答案泄漏、应按决策日期评测。"
+  },
+  {
+    "id": "2611.32993",
+    "title": "Decision-Native Multimodal Clinical Modeling via Anatomical Grounding and Confidence Calibration",
+    "abstract": "Structured clinical decisions from volumetric computed tomography (CT) require anatomically grounded predictions and calibrated confidence estimates. However, existing 3D medical multimodal models often suffer from uncalibrated autoregressive decoding and shortcut reliance on irrelevant anatomical regions. We introduce Radev, a decision-native multimodal model that integrates anatomy-guided visual compression, direct candidate prediction, and counterfactual confidence supervision. To bridge global context with fine-grained slice details, a frozen 3D encoder extracts reusable organ-level features, which are dynamically selected by the query to attend to 2D slice features within predicted anatomical bounds. The resulting compact visual tokens enable the language backbone to estimate candidate probabilities in a single forward pass without autoregressive decoding. We further propose Counterfactual-Calibrated Training (CCT) to compare predictions under intact and intervened organ representations. CCT encourages confidence to decrease when removing target-organ evidence degrades decision quality, while penalizing excessive confidence drops under unrelated-organ removal. To facilitate rigorous evaluation, we construct CT-Verdict, a comprehensive benchmark spanning binary finding presence, multiple-choice questions, and ordinal severity assessment across both in-distribution and external cohorts. Extensive experiments demonstrate that Radev significantly outperforms state-of-the-art methods in both decision accuracy and confidence calibration, while generalizing robustly under distribution shifts. Project page at https://juntaojianggavin.github.io/projects/Radev/",
+    "authors": [
+      "Juntao Jiang",
+      "Wenqi Zhong",
+      "Guangyu Guo",
+      "Dexia Chen",
+      "Yilong Hu",
+      "Yunhao Bai"
+    ],
+    "published": "2026-11-24",
+    "categories": [],
+    "source": "HuggingFace",
+    "upvotes": 1,
+    "url": "https://arxiv.org/abs/2611.32993",
+    "tags": [
+      "📊 评测 / Benchmark",
+      "🖼️ 多模态医疗"
+    ],
+    "primary_tag": "📊 评测 / Benchmark",
+    "medical_score": 3,
+    "tldr_zh": "针对3D医学模型未校准且依赖无关区域，提出解剖引导压缩、直接预测与反事实校准，取得CT决策准确率和校准提升并稳健泛化。"
+  },
+  {
+    "id": "2611.34539",
+    "title": "EPPC-CARE: Staged Hierarchical Annotation of Communication Behaviors in Secure Patient-Provider Messages",
+    "abstract": "Objectives: Patient portal messages provide invaluable information about communication dynamics between patients and healthcare providers, but extracting it manually is labor-intensive. We developed and evaluated EPPC-CARE, an automated framework for identifying communication behaviors together with the supporting text for each classification. Materials and Methods: From 867 messages, we obtained 5,516 reference standard annotations. Each annotation is a triplet of communication-related text (span), a broader communication category (Code), and a specific subcategory (Sub-code). We evaluated EPPC-CARE's identified triplets across six open-weight large language models (LLMs) against supervised fine-tuning and communication-based models such as EPPC-OASIS. We also compared EPPC-CARE with human expert annotations on 100 messages. Results: EPPC-CARE improved performance over EPPC-OASIS across all six models. EPPC-CARE's Triplet F1 improved by 2.90 percentage points on average, with a best score of 64.4%. On the human expert evaluation subset, EPPC-CARE and the human expert showed comparable agreement with the reference standard, with differences favoring EPPC-CARE. Discussion: These findings suggest that identifying triplet components (span, code, subcode) sequentially can improve performance across model families while preserving the supporting text behind each identification. EPPC-CARE links the communication code and subcode with the source text (span), supporting human verification of automated annotations in clinical informatics. EPPC-CARE may therefore make larger-scale studies of patient-provider communication more feasible and provide a foundation for human-in-the-loop annotation workflows. Conclusion: EPPC-CARE offers a more reliable and reviewable approach for automated characterization of communication behaviors in secure patient-provider messaging.",
+    "authors": [
+      "Samah Fodeh",
+      "Sreeraj Ramachandran",
+      "Ganesh Puthiaraju",
+      "Sarah Schellhorn"
+    ],
+    "published": "2026-11-25",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.34539",
+    "tags": [
+      "🩺 医疗 LLM"
+    ],
+    "primary_tag": "🩺 医疗 LLM",
+    "medical_score": 6,
+    "tldr_zh": "针对患者门户消息沟通行为标注费力，提出分阶段识别文本、类别与子类的框架，取得F1提升且支持审查。"
+  },
+  {
+    "id": "2611.34493",
+    "title": "Auditing Identity and Timing Signals in Operational Logs",
+    "abstract": "Models that predict events from operational logs, such as sepsis in ICU records or failures in hard drives, can score well by recognizing which patient or drive a record came from, or when it was recorded, instead of predicting the event. I introduce two simple audits that measure how much of this information a dataset carries before any event-prediction model is trained, and apply them to seven public datasets in six domains. One asks whether a classifier can tell that two records came from the same unit; the other asks which of two records from the same unit came later. Under the stated nulls, both have expected AUC 0.5. In ICU data, the identity audit flags a common preprocessing step: carrying the last measurement forward raises identity AUC from 0.916 to 0.993. On a 12-hour sepsis forecasting task, carrying forward makes a model look 0.163 AUC better than raw values when a patient's hours are split between training and test, but only 0.046 better when patients are held out. The exaggeration under patient overlap also appears in a second ICU dataset with mortality as the outcome. On the sepsis task, a chronological control with complete follow-up, in which training sees only a patient's earlier, resolved hours, shows no positive mean overlap gap. Timing is a strong predictor: with complete follow-up, hour of stay and measurement counts alone, with no clinical value, score 0.761 on held-out patients, and adding the raw clinical values changes that by +0.018. Outside the ICU, 95% of drives and 75% of loans have records on both sides of a calendar cut, and the overlap gap persists under a calendar split. The audits show which features and preprocessing choices to check; the evaluation protocol decides the consequences. I release the code, a library that runs the audits on any table with a unit column and a time column, and a guide to using the audits.",
+    "authors": [
+      "Andrew Hendel"
+    ],
+    "published": "2026-11-25",
+    "categories": [
+      "cs.LG"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.34493",
+    "tags": [
+      "🩺 医疗 LLM"
+    ],
+    "primary_tag": "🩺 医疗 LLM",
+    "medical_score": 6,
+    "tldr_zh": "针对日志模型靠身份与时间虚高评估，提出同单元身份与时间审计，发现前向填充和日历切分致重叠虚高，并提供工具。"
+  },
+  {
+    "id": "2611.34465",
+    "title": "Evidence-Aligned Benchmarking and Learning for Medical Video Language Models",
+    "abstract": "A medical video language model should answer from the visual evidence its question asks about. We find three places where this breaks down and address each with an approach we call MedEvidU. First, benchmarks reward answers that ignore the video: on one dataset, the position of a clip within its recording predicts the surgical step in 37% of questions, and a constant answer beats every trained model on a standard safety-assessment metric. We build MedVidBench-v2, 34 tasks from 18 surgical and clinical video datasets, in which prompts and metrics are audited with answers given without video, and which tests unseen hospitals and windows cut blindly from whole recordings. Second, common video encoders merge consecutive frames into shared tokens, so a question about one frame is answered from a blend of two. Query-slot inputs give each queried frame its own tokens at almost no extra cost. Third, a fine-tuned model has memorized its training questions, which leaves little to learn from. Label-matched question resampling (LQR) adds unseen questions about the same recordings while keeping the answer distribution fixed, in a final supervised epoch and in reinforcement learning. Together, these raise the grounding IoU of a 4B model from 30.4 to 44.4, above a supervised 27B model, and instrument grounding at an unseen hospital from 33.9 to 72.5. On blindly cut windows, event-presence accuracy improves by 5.5 points and localization F1 by 8.1 points. Project page: https://gaozhongpai.github.io/MedEvidU/",
+    "authors": [
+      "Zhongpai Gao",
+      "Anwesa Choudhuri",
+      "Meng Zheng",
+      "Benjamin Planche",
+      "Terrence Chen",
+      "Ziyan Wu"
+    ],
+    "published": "2026-11-25",
+    "categories": [
+      "cs.CV"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.34465",
+    "tags": [
+      "📊 评测 / Benchmark"
+    ],
+    "primary_tag": "📊 评测 / Benchmark",
+    "medical_score": 6,
+    "tldr_zh": "针对医疗视频模型忽视视觉证据的问题，提出审计基准、查询槽输入与标签重采样，提升定位和跨院泛化。"
+  },
+  {
+    "id": "2611.34930",
+    "title": "A gene informed benchmark for BioScoring of pathology foundation models",
+    "abstract": "Pathology foundation models are usually compared by their performance on downstream tasks such as classification and retrieval. While such benchmarks measure how useful a model is, they provide no insight into the biology it represents. We introduce BioScore, a benchmark that quantifies how well an image encoder captures cell identities, with spatial transcriptomics of the same tissue as the reference. A sparse autoencoder splits the encoder's patch embeddings into sparse features, which we cluster into a fixed number of groups. BioScore then measures, for each of 52 cell identities defined by marker genes, how specifically one group follows the identity's expression over the tissue. Because the autoencoder training is fully unsupervised, a match shows that the model represents the cell identity from the image alone. We score 8 pathology foundation models and 3 natural-image models. Every pathology model scores above every natural-image model (0.299--0.371 \\vs 0.214--0.232), and paired tests separate three tiers among the pathology models. Unlike a supervised probe, BioScore needs no labels, builds its reference from the data and scores even from few sections, yet it ranks the encoders as a probe does. Its per-identity breakdown indicates which cell identities each encoder captures or misses.",
+    "authors": [
+      "Paul Vilars",
+      "Vincent Quoc-Huy Trinh",
+      "Maria Vakalopoulou",
+      "Dimitris Samaras",
+      "Stergios Christodoulidis",
+      "Mahdi S. Hosseini"
+    ],
+    "published": "2026-11-25",
+    "categories": [
+      "cs.LG"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.34930",
+    "tags": [
+      "📊 评测 / Benchmark"
+    ],
+    "primary_tag": "📊 评测 / Benchmark",
+    "medical_score": 5,
+    "tldr_zh": "针对病理基础模型评测难反映细胞身份，提出空间转录组参照的无标签稀疏特征评分，显示病理模型优于自然图像模型并揭示身份差异。"
+  },
+  {
+    "id": "2611.34781",
+    "title": "Comparative Study of Deep Learning Architectures for Brain Tumour Classification",
+    "abstract": "Accurate and early classification of brain tumours from magnetic resonance imaging (MRI) is essential for treatment planning, yet many published deep learning studies are trained and tested on small, single-source datasets, reporting accuracies that may not hold outside these datasets. This study compares six deep learning architectures for four-class classification (healthy, meningioma, glioma and pituitary tumour): a baseline convolutional neural network (CNN), an attention-based CNN, ShuffleNet, and EfficientNet-B0, ResNet-50 and Xception augmented with the Convolutional Block Attention Module (CBAM). The models were trained on a corpus assembled from four publicly available MRI datasets. Because these datasets carry no patient identifiers, a leakage-aware pipeline was developed that removes exact duplicates using MD5 hashing (550 images) and near-duplicates using perceptual hashing (8,024 images), and assigns visually similar images to the same fold during 5-fold group cross-validation. A leave-one-dataset-out (LODO) test on a fully held-out dataset was used to measure cross-dataset generalisation. Under a conventional random split, ShuffleNet achieved 97.1% accuracy with 1.2M parameters. Under leakage-aware group K-fold cross-validation, ShuffleNetV2 (98.41%) and EfficientNet-B0 (98.23%) were statistically indistinguishable (paired t-test, p = 0.19), and both significantly outperformed the custom CNNs. On the held-out dataset, accuracy dropped for every model: EfficientNet-B0 generalised best (78.4%), while ShuffleNetV2 fell to 66.2%. Glioma-meningioma confusion was the dominant error mode, and Grad-CAM maps showed that predictions were driven by tumour regions. These results indicate that in-distribution accuracy alone overstates real-world performance and that leakage-aware and cross-dataset evaluation should be reported alongside it.",
+    "authors": [
+      "Prisha Gupta",
+      "Pradeep Kumar Gupta"
+    ],
+    "published": "2026-11-25",
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.34781",
+    "tags": [
+      "🩺 医疗 LLM"
+    ],
+    "primary_tag": "🩺 医疗 LLM",
+    "medical_score": 4,
+    "tldr_zh": "针对脑肿瘤MRI分类易受数据泄漏影响，提出六模型比较与去重分组验证及留一数据集测试，显示跨库泛化下降并强调跨数据集评估"
+  },
+  {
+    "id": "2611.34427",
+    "title": "Mitigating Hallucinations in Medical Question Answering on ESC Cardiology Guidelines: Evaluation and Retrieval Optimization",
+    "abstract": "Background: Large language models produce hallucinations in medical question answering (QA). Verify-and-revise pipelines that check atomic claims against retrieved guideline evidence are a standard mitigation, but evaluations almost universally treat the verifier's output as ground truth, an assumption rarely tested. Objective: To measure, claim by claim against human judgement, how such a pipeline fails in a guideline-grounded clinical setting. Methods: We built a dataset of 160 questions (100 patient vignettes from 89 de-identified cases, 60 fact-based) over four recent ESC cardiology guidelines, all approved by a practising internist, and a retrieval corpus of 627 hand-verified guideline records at two chunk granularities. A five-stage pipeline was run under four retrieval configurations and three independent runs (1920 arm-runs); all 606 first-pass refuted claims were manually audited, an independent judge re-judged 906 decisions, and the expert blindly reviewed 100 accepted claims. Results: Only 44.7-50.6% of flagged claims were true hallucinations. Correction loops converged in 85.2-95.1% of cases, yet 35% of genuine final errors were introduced by correction. Single-run true-hallucination recall was 35.6-41.2%, the three-run union 71-80%; verifier agreement was moderate (kappa = 0.505). The blind probe estimated the accepted-claim miss rate at 3.2% (95% CI 0.7-6.7%). Final genuine-error rate: 1.7% of answers. Conclusion: Claim-level verification reduces hallucinated content by an order of magnitude, but verifier reliability, not generation, is the limiting factor and must be measured, not assumed.",
+    "authors": [
+      "Ilkin Masimov",
+      "Rufana Baghirli",
+      "Muhammad Rashid"
+    ],
+    "published": "2026-11-25",
+    "categories": [
+      "cs.CL"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.34427",
+    "tags": [
+      "🩺 医疗 LLM"
+    ],
+    "primary_tag": "🩺 医疗 LLM",
+    "medical_score": 4,
+    "tldr_zh": "针对医学问答验证器可靠性被默认为真的问题，提出指南检索与人工审计管线，取得真实错误率1.7%且验证器成瓶颈。"
+  },
+  {
+    "id": "2611.34250",
+    "title": "MedSkill-E$^{2}$: Evaluating and Evolving Skills for Medical Agents",
+    "abstract": "Large language model (LLM) agents increasingly use skills to access domain knowledge and complete real-world tasks. We observe that even when a skill specifies the rules and procedures needed for a task, agents may fail to apply them effectively during autonomous execution, a phenomenon we call skill Enable But Underuse (EBU). This issue is particularly consequential in medical tasks, where overlooking a single critical constraint can yield a plausible but incorrect result. To evaluate and address EBU, we introduce MedSkill-E$^{2}$, a framework for evaluating and evolving skills for medical agents. We construct EBU-Bench, a challenging benchmark covering 12 medically relevant task groups and associated skills, to evaluate agents' ability to use available skills autonomously. We quantify the EBU gap as the difference in skill-use accuracy between autonomous use and explicitly guided reading and application of the same skill. On EBU-Bench, all evaluated model-harness combinations exhibit EBU, with a mean gap of 43.94 percentage points (pp). For the same model, skill-use accuracy under autonomous use differs by up to 38.96 pp across harnesses. Motivated by these observations, we propose EBU-Evolve, which uses execution feedback from autonomous and explicitly guided skill use to distill effective guidance into reusable skill instructions. Relative to their pre-evolution versions, the revised skills improve skill-use accuracy during autonomous execution by 33.33 to 55.17 pp and continue to yield improvements when transferred across multiple models and harnesses. Our results show that autonomous skill-use accuracy varies across harnesses with the model and skill held fixed, and model rankings can change. EBU can persist even after a skill is opened. EBU-Evolve improves autonomous skill-use accuracy on unseen tasks within the same skill, with gains transferring across models and harnesses.",
+    "authors": [
+      "Jingjing Hua",
+      "Shaocong Wei",
+      "Jianghan Shen",
+      "Junzhi Ning",
+      "Min Cen",
+      "Cheng Tang"
+    ],
+    "published": "2026-11-25",
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.34250",
+    "tags": [
+      "📊 评测 / Benchmark",
+      "🤖 Agent"
+    ],
+    "primary_tag": "📊 评测 / Benchmark",
+    "medical_score": 3,
+    "tldr_zh": "针对医疗智能体技能可用但未用，提出EBU-Evolve，取得自主技能使用准确率提升33.33至55.17pp且可迁移。"
+  },
+  {
+    "id": "2611.34008",
+    "title": "DosePET: An Open-Source Dataset with 2100 Radiation Dose Maps for PET/CT",
+    "abstract": "Large collections of three-dimensional radiation dose maps linked to patient anatomy are needed to develop artificial intelligence (AI) models for personalized internal dosimetry in nuclear medicine, but access to such data remains limited. Here we present DosePET, an open-source dataset of 2,100 patient-specific absorbed-dose maps generated by Monte Carlo simulation of publicly available PET/CT examinations: 1,503 [18F]FDG examinations from ENHANCE.PET and 369 [18F]PSMA-1007 and 228 [68Ga]Ga-PSMA-11 examinations from PSMA-PET-CT-Lesions, acquired at five institutions with seven scanner models. For each examination, the CT was resampled to the native PET grid to build a voxelized patient phantom, the quantitative PET image defined the radionuclide source, and radiation transport was simulated with GATE version 9.4. Organ and tissue masks were generated from the CT with TotalSegmentator. Each study folder contains a NIfTI dose map integrated from scan time to infinity, 117 binary organ/tissue masks, a report of regional dosimetric quantities, including mean absorbed doses, dose conversion factors and scan-time dose rates, and simulation metadata. The total processing time was 1,542.4 hours. Python tools support selective downloading and conversion to scan-time dose-rate or dose-per-decay maps, and an agent skill guides pairing with the source PET/CT images. DosePET is publicly available at https://huggingface.co/datasets/eltzanis/DosePET.",
+    "authors": [
+      "Eleftherios Tzanis",
+      "Antonios Tzortzakakis",
+      "Michail E. Klontzas"
+    ],
+    "published": "2026-11-25",
+    "categories": [
+      "physics.med-ph",
+      "cs.AI"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.34008",
+    "tags": [
+      "🤖 Agent"
+    ],
+    "primary_tag": "🤖 Agent",
+    "medical_score": 4,
+    "tldr_zh": "针对核医学AI个性化内照射剂量数据不足，提出开源DosePET数据集，取得2100例蒙特卡洛剂量图，支持建模。"
+  },
+  {
+    "id": "2611.34478",
+    "title": "Feed-Forward Adaptive Gaussian Splatting for Interactive Medical Volume Rendering",
+    "abstract": "Path-traced rendering shows CT and MR volumes with realistic lighting, but it restarts after every change of view, clipping plane or transfer function (TF), the map from voxel intensity to colour and opacity, which limits the frame rate. Feed-forward Gaussian splatting models such as RenderFM predict the Gaussians directly from the volume instead of fitting them to each scan, and are fast. RenderFM, however, handles only CT, runs its network again after every TF edit, has no clipping operator, and places its Gaussians on a uniform 3-mm grid that blurs organ boundaries and cut faces. We present RenderFM-Next, a feed-forward model that addresses these limits. One network handles both CT and MR. Its Gaussians are predicted once per volume: a new TF needs no pass of this network, and a clipping plane cuts them exactly, using operators from prior work. The model predicts coarse 3-mm Gaussians for the whole volume and refines them to 1.5 mm only where refinement improves the image. A small score head ranks the coarse Gaussians by how much refining them would reduce the rendering error; at render time the user chooses how many are refined, and those next to a clipping plane are always refined, which sharpens cut faces. We build a benchmark of about 2,000 CT and MR scans with path-traced references under clinical presets, TF edits and clipping. Our RenderFM-Next improves over RenderFM retrained on this benchmark by 2.8 dB on CT and 2.4 dB on MR and renders a 1600x1600 view in 4-6 ms. Refinement adds 0.30 / 0.69 dB over the same model trained without it (0.51 / 1.17 dB on cut faces), and refining a learned 10% of the coarse Gaussians matches a random 50% with 2.4x fewer Gaussians. Project page: https://gaozhongpai.github.io/renderfmnext/",
+    "authors": [
+      "Zhongpai Gao",
+      "Benjamin Planche",
+      "Meng Zheng",
+      "Anwesa Choudhuri",
+      "Chaoyi Zhou",
+      "Terrence Chen"
+    ],
+    "published": "2026-11-25",
+    "categories": [
+      "cs.CV"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.34478",
+    "tags": [
+      "📊 评测 / Benchmark"
+    ],
+    "primary_tag": "📊 评测 / Benchmark",
+    "medical_score": 2,
+    "tldr_zh": "针对医学体渲染交互慢且现有高斯泼溅难适配多模态、传递函数与裁剪，提出前馈自适应高斯泼溅，取得快速高质量渲染。"
+  },
+  {
+    "id": "2611.34599",
+    "title": "A Real-Time Low-Cost Platform for Non-Contact Respiratory Rate Monitoring: A Comparative Evaluation of RGB Optical Flow and Time-of-Flight Depth Sensing",
+    "abstract": "Respiratory rate (RR) is one of the earliest indicators of clinical deterioration, which makes its continuous measurement clinically valuable. In routine practice, however, RR is monitored almost exclusively with contact-based sensors, which require skin attachment, may alter natural breathing, and are poorly tolerated by vulnerable groups such as newborns and elderly patients. Non-contact sensing removes these constraints, with RGB video and depth imaging among its most accessible modalities. In this work, we present a low-cost, real-time platform based on a single multimodal sensor that provides both RGB and time-of-flight (ToF) data streams, implemented on a Raspberry Pi 5 edge device. The system integrates three RGB optical-flow pipelines, namely Farnebäck, Horn--Schunck, and Lucas--Kanade, together with a depth-based pipeline incorporating region-of-interest stabilization and distance-derived signal extraction, enabling the two modalities to be evaluated independently under the same experimental protocol. The proposed approach was evaluated on twelve healthy volunteers following a controlled protocol, including normal breathing, hyperventilation, and breath-holding, using a piezoresistive respiratory belt as a reference. RGB-based methods achieved lower RR estimation errors, with Lucas--Kanade attaining the lowest median MAE (3.83 BPM), whereas the ToF-based pipeline, although less accurate for RR estimation (median MAE 6.24 BPM), reached a higher apnea detection sensitivity (0.66 vs 0.51-0.55). These findings highlight the complementary strengths of both modalities and support their integration into unified low-cost platforms.",
+    "authors": [
+      "Dominik Jasiówka",
+      "Patryk Ciężarek",
+      "Joanna Zysnawska",
+      "Ludwin Molina Arias"
+    ],
+    "published": "2026-11-25",
+    "categories": [
+      "eess.SP"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.34599",
+    "tags": [
+      "🖼️ 多模态医疗"
+    ],
+    "primary_tag": "🖼️ 多模态医疗",
+    "medical_score": 1,
+    "tldr_zh": "针对非接触呼吸率低成本实时监测，提出树莓派多模态光流与深度平台，取得可见光误差更低、深度窒息检测更灵敏的互补结果。"
+  },
+  {
+    "id": "2611.34523",
+    "title": "Rank Before You Encode: Reading a Few Percent of a Whole-Slide Image",
+    "abstract": "Classifying a whole-slide image requires encoding thousands of high-resolution tiles with a pathology foundation model, which accounts for most of the inference cost. Existing efficient methods reduce this cost by selecting fewer tiles, but typically train a new model around their selection strategy. A largely unexplored alternative is to keep an existing full-bag model frozen and run it on selected tiles at the same encoder cost. We introduce this comparison, alongside random tile sampling at matched cost. To select tiles, we fit a lightweight selector with 3.3K parameters to the attention of a frozen model, without additional slide labels. The selector ranks regions from a slide thumbnail, encodes the top K regions at 5x magnification, and selects b for processing at 20x. We evaluate seven frozen MIL aggregators on six tasks and compare them with nine efficient methods trained on the same features and splits. At a budget of (K,b)=(1000,10), encoding costs about 6.6% of the full bag and is 10-14x faster, excluding tiling. The AUROC drop is no more than 0.005 in 33 of 36 aggregator-task pairs. At (500,10), the cost falls to about 4% and inference is 13-22x faster, but AUROC drops by up to 0.035 on CAMELYON17, where small metastases are easily missed. Selection improves over random sampling by about 0.10 AUROC on tasks with focal lesions, while random sampling performs well on diffuse tasks. In our comparisons, the frozen model at (500,10) is ahead of nine efficient methods in 55 of 60 paired comparisons. Giving an existing WSI model fewer tiles is thus a baseline that a new efficient model should be compared with at matched encoder cost.",
+    "authors": [
+      "Haoyu He",
+      "Mahdi S. Hosseini"
+    ],
+    "published": "2026-11-25",
+    "categories": [
+      "cs.CV"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.34523",
+    "tags": [
+      "🩺 医疗 LLM"
+    ],
+    "primary_tag": "🩺 医疗 LLM",
+    "medical_score": 1,
+    "tldr_zh": "针对全切片推理成本高，提出冻结模型并用轻量选择器排序选取少量图块，取得编码成本约6%、加速10倍且性能基本不变。"
+  },
+  {
+    "id": "2611.34297",
+    "title": "BOT-Scale: A Traceable Evaluation Methodology for Robotic Manipulation",
+    "abstract": "A successful manipulation rollout can still involve a mid-task object drop or a placement deviation. Existing evaluators reduce such deviations to a single score or attach explanations computed separately; the score itself explains neither its basis nor what to fix. We show that a manipulation score becomes traceable when defined as the sum of outcome-conditioned penalties over retained behavioral-factor records. Explanation and score share the same computation, so each factor-level deduction names an inspectable deviation. BOT-Scale applies this principle by adapting behavioral assessment scales from medicine. It organizes twelve candidate factors into four assessment layers; each factor is tied to observable evidence and an explicit decision criterion. Reference calibration fixes a penalty per factor, and a closed-form rule aggregates the factor records into a score with per-factor contributions. We developed BOTScorer, an automatic scoring system based on the seven factors retained by data-driven screening, to validate this methodology. We provide BOT-Events, a dataset with eight-rater quality scores and factor-event annotations, alongside the traceable, interpretable score. The code will be released publicly.",
+    "authors": [
+      "Yunfei Xue",
+      "Kemi Chen",
+      "Weiling Chen",
+      "Wei Gao",
+      "Tiesong Zhao",
+      "Zheng-Jun Zha"
+    ],
+    "published": "2026-11-25",
+    "categories": [
+      "cs.RO"
+    ],
+    "source": "arXiv",
+    "upvotes": 0,
+    "url": "https://arxiv.org/abs/2611.34297",
+    "tags": [
+      "🩺 医疗 LLM"
+    ],
+    "primary_tag": "🩺 医疗 LLM",
+    "medical_score": 1,
+    "tldr_zh": "针对机器人操作评估分数缺乏可追溯解释的问题，提出医学量表启发的因子级惩罚评分方法，形成可解释自动评分与标注数据集。"
+  }
+]
