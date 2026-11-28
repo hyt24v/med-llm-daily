@@ -1,0 +1,27 @@
+[
+  {
+    "id": "2611.32993",
+    "title": "Decision-Native Multimodal Clinical Modeling via Anatomical Grounding and Confidence Calibration",
+    "abstract": "Structured clinical decisions from volumetric computed tomography (CT) require anatomically grounded predictions and calibrated confidence estimates. However, existing 3D medical multimodal models often suffer from uncalibrated autoregressive decoding and shortcut reliance on irrelevant anatomical regions. We introduce Radev, a decision-native multimodal model that integrates anatomy-guided visual compression, direct candidate prediction, and counterfactual confidence supervision. To bridge global context with fine-grained slice details, a frozen 3D encoder extracts reusable organ-level features, which are dynamically selected by the query to attend to 2D slice features within predicted anatomical bounds. The resulting compact visual tokens enable the language backbone to estimate candidate probabilities in a single forward pass without autoregressive decoding. We further propose Counterfactual-Calibrated Training (CCT) to compare predictions under intact and intervened organ representations. CCT encourages confidence to decrease when removing target-organ evidence degrades decision quality, while penalizing excessive confidence drops under unrelated-organ removal. To facilitate rigorous evaluation, we construct CT-Verdict, a comprehensive benchmark spanning binary finding presence, multiple-choice questions, and ordinal severity assessment across both in-distribution and external cohorts. Extensive experiments demonstrate that Radev significantly outperforms state-of-the-art methods in both decision accuracy and confidence calibration, while generalizing robustly under distribution shifts. Project page at https://juntaojianggavin.github.io/projects/Radev/",
+    "authors": [
+      "Juntao Jiang",
+      "Wenqi Zhong",
+      "Guangyu Guo",
+      "Dexia Chen",
+      "Yilong Hu",
+      "Yunhao Bai"
+    ],
+    "published": "2026-11-24",
+    "categories": [],
+    "source": "HuggingFace",
+    "upvotes": 1,
+    "url": "https://arxiv.org/abs/2611.32993",
+    "tags": [
+      "📊 评测 / Benchmark",
+      "🖼️ 多模态医疗"
+    ],
+    "primary_tag": "📊 评测 / Benchmark",
+    "medical_score": 3,
+    "tldr_zh": "针对CT多模态模型解剖定位与置信校准不足，提出Radev解剖引导压缩、直接预测与反事实校准，取得决策准确与校准提升。"
+  }
+]
